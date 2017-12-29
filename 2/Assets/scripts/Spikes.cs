@@ -18,6 +18,7 @@ public class Spikes : MonoBehaviour {
 		
 			Player.Damage (3);
 
+			Player.Knockback (0.02f, 700, Player.transform.position);
 		}
 	
 	}

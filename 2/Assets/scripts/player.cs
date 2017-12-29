@@ -74,12 +74,24 @@ public class player : MonoBehaviour {
 		if (dmg > currentHP) {
 
 			currentHP = 0;
-			
+
 		}
 		else {
-
 			currentHP -= dmg;
+			gameObject.GetComponent<Animation> ().Play ("player_dmg_flashing");
 		}	
+	}
+
+	public int Knockback(float knockDur, float knockbackPwr, Vector3 knockbackDir){
+
+		float timer = 0;
+
+		while (knockDur > timer) {
+			timer += Time.deltaTime;
+			rb2D.AddForce (new Vector3 (knockbackDir.x * -100, knockbackDir.y * knockbackPwr, transform.position.z));
+		}
+
+		return 0;
 	}
 
 }
