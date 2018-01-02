@@ -6,7 +6,7 @@ public class turretAI : MonoBehaviour {
 
 	//Variables
 	public int currentHP;
-	public int maxHP;
+	public int maxHP = 40;
 
 	public float distance;
 	public float wakeRange;
@@ -40,6 +40,9 @@ public class turretAI : MonoBehaviour {
 		if (target.transform.position.x < transform.position.x) {
 			looking_right = false;
 		}
+		if (currentHP<=0) {
+			Destroy (gameObject);
+		}
 	}
 
 	void RangeCheck(){
@@ -70,6 +73,11 @@ public class turretAI : MonoBehaviour {
 				bulletTimer = 0;
 			}
 		}
+	}
+
+	public void Damage (int damage){
+		currentHP -= damage;
+		gameObject.GetComponent<Animation> ().Play ("player_dmg_flashing");
 	}
 
 }
