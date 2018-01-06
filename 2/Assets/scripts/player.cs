@@ -10,6 +10,7 @@ public class player : MonoBehaviour {
 	public bool grounded;
 	private Rigidbody2D rb2D;
     private Animator anim;
+	private game_master gm;
 
 	//Stats
 	public int currentHP;
@@ -20,6 +21,7 @@ public class player : MonoBehaviour {
 	void Start () {
 		rb2D = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
+		gm = GameObject.FindGameObjectWithTag ("game_master").GetComponent<game_master> ();
 
 		currentHP = maxHP;
 	}
@@ -85,7 +87,6 @@ public class player : MonoBehaviour {
 	public int Knockback(float knockDur, float knockbackPwr, Vector3 knockbackDir){
 
 		float timer = 0;
-
 		while (knockDur > timer) {
 			timer += Time.deltaTime;
 			rb2D.AddForce (new Vector3 (knockbackDir.x * -100, knockbackDir.y * knockbackPwr, transform.position.z));
@@ -94,6 +95,12 @@ public class player : MonoBehaviour {
 		return 0;
 	}
 
+	void OnTriggerEnter2D(Collider2D col){
+		if (col.CompareTag ("burak")) {
+			Destroy (col.gameObject);
+			gm.points += 1;
+		}
+	}
 }
 	
 
