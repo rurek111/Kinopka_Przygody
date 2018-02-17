@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 34931983}
   - component: {fileID: 34931982}
   m_Layer: 0
-  m_Name: torso 2
+  m_Name: tunik lower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -214,12 +214,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 34931981}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.122, y: 1.246, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.698, y: -4.314, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 1844287494}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &35935569
 GameObject:
@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.83174825
+  m_Length: 0.8317483
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 479588218}
   m_AttachedIK: {fileID: 473869358}
@@ -648,7 +648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.99999934
+  m_Length: 0.99999917
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1581757311}
   m_AttachedIK: {fileID: 0}
@@ -1824,7 +1824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.99999857
+  m_Length: 0.99999875
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 380138917}
   m_AttachedIK: {fileID: 0}
@@ -2314,7 +2314,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1330553655}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -7.868645, y: 12.104594, z: -0.011365581}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2323,7 +2323,7 @@ Transform:
   - {fileID: 1412735019}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &1330553657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2904,6 +2904,7 @@ Transform:
   - {fileID: 1273821055}
   - {fileID: 874681866}
   - {fileID: 324634217}
+  - {fileID: 34931984}
   m_Father: {fileID: 1412735019}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
