@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae0543fe805424df99fe08ce744cbe49, type: 3}
-  m_Name: stand
+  m_Name: pose
   m_EditorClassIdentifier: 
   m_PoseEntries:
   - path: Bones/dupa
@@ -66,23 +66,23 @@ MonoBehaviour:
     localScale: {x: 3.4789338, y: 3.1377325, z: 3.478935}
   - path: Bones/dupa/brzuch/r arm
     localPosition: {x: 1.670717, y: 0.94041395, z: 0}
-    localRotation: {x: 0, y: 0, z: 0.9988569, w: -0.047800243}
+    localRotation: {x: 0, y: 0, z: -0.9999426, w: 0.010717383}
     localScale: {x: 1.9893092, y: 2.1159914, z: 1.9406015}
   - path: Bones/dupa/brzuch/r arm/New bone
     localPosition: {x: 0.8317481, y: -0.0012032839, z: 0}
-    localRotation: {x: 0, y: 0, z: -0.1353735, w: 0.99079466}
+    localRotation: {x: 0, y: 0, z: 0, w: 1}
     localScale: {x: 0.6734802, y: 0.9355835, z: 0.9355835}
   - path: Bones/dupa/brzuch/l arm
     localPosition: {x: 1.8968959, y: -0.64678854, z: 0}
-    localRotation: {x: 0, y: 0, z: -0.97951144, w: 0.20138867}
+    localRotation: {x: 0, y: 0, z: -0.9965044, w: 0.083540194}
     localScale: {x: 2.0234933, y: 2.0799165, z: 1.9406027}
   - path: Bones/dupa/brzuch/l arm/New bone
     localPosition: {x: 0.8317481, y: -0.0012032839, z: 0}
-    localRotation: {x: 0, y: 0, z: -0.30620453, w: 0.95196575}
+    localRotation: {x: 0, y: 0, z: -0.06436822, w: 0.99792624}
     localScale: {x: 0.7716021, y: 0.9355835, z: 0.9355835}
   - path: Bones/dupa/lleg
     localPosition: {x: -0.43633276, y: -0.56182706, z: 0}
-    localRotation: {x: 0, y: 0, z: -0.9999991, w: -0.001358314}
+    localRotation: {x: 0, y: 0, z: -0.9999377, w: 0.011160813}
     localScale: {x: 2.5597072, y: 2.2568426, z: 2.2677267}
   - path: Bones/dupa/lleg/backfrendzel (3)
     localPosition: {x: 0.20706311, y: 0.10276706, z: 0}
@@ -102,15 +102,15 @@ MonoBehaviour:
     localScale: {x: 1.0017625, y: 1.0017626, z: 1}
   - path: Bones/dupa/lleg/2
     localPosition: {x: 1.0000329, y: 0.00000021128508, z: 0}
-    localRotation: {x: 0, y: 0, z: 0.12047691, w: 0.99271613}
+    localRotation: {x: 0, y: 0, z: 0.11366837, w: 0.99351877}
     localScale: {x: 1.1867459, y: 0.8364175, z: 0.8364175}
   - path: Bones/dupa/lleg/2/3
     localPosition: {x: 1.0000011, y: 0.00000023841858, z: 0}
-    localRotation: {x: 0, y: 0, z: -0.51399946, w: 0.8577905}
+    localRotation: {x: 0, y: 0, z: -0.70864344, w: 0.70556676}
     localScale: {x: 0.29125893, y: 0.29125878, z: 0.29125878}
   - path: Bones/dupa/lleg/2/3/4
     localPosition: {x: 0.99999976, y: 0.0000011255473, z: 0}
-    localRotation: {x: 0, y: 0, z: -0.41844854, w: 0.9082405}
+    localRotation: {x: 0, y: 0, z: 0, w: 1}
     localScale: {x: 0.9836853, y: 1, z: 1}
   - path: Bones/dupa/lleg/front frendzel
     localPosition: {x: 0.16765301, y: 0.16392002, z: 0}
@@ -122,19 +122,19 @@ MonoBehaviour:
     localScale: {x: 1, y: 1, z: 1}
   - path: Bones/dupa/rleg
     localPosition: {x: -0.38411793, y: 0.7701753, z: 0}
-    localRotation: {x: 0, y: 0, z: -0.9998452, w: 0.01759744}
+    localRotation: {x: 0, y: 0, z: -0.999673, w: 0.02557066}
     localScale: {x: 2.559727, y: 2.256859, z: 2.2677271}
   - path: Bones/dupa/rleg/2
     localPosition: {x: 1.000038, y: 0, z: 0}
-    localRotation: {x: 0, y: 0, z: 0.08676547, w: 0.99622875}
+    localRotation: {x: 0, y: 0, z: 0.08498338, w: 0.99638236}
     localScale: {x: 1.1867459, y: 0.8364175, z: 0.8364175}
   - path: Bones/dupa/rleg/2/3
     localPosition: {x: 0.9994356, y: 0.009673849, z: 0}
-    localRotation: {x: 0, y: 0, z: -0.5292488, w: 0.8484667}
+    localRotation: {x: 0, y: 0, z: -0.74590236, w: 0.6660554}
     localScale: {x: 0.29125893, y: 0.29125878, z: 0.29125878}
   - path: Bones/dupa/rleg/2/3/4
     localPosition: {x: 0.99999976, y: 0.0000011255473, z: 0}
-    localRotation: {x: 0, y: 0, z: -0.58224916, w: 0.8130104}
+    localRotation: {x: 0, y: 0, z: 0, w: 1}
     localScale: {x: 0.9836853, y: 1, z: 1}
   - path: Bones/dupa/rleg/front frendzel (3)
     localPosition: {x: 0.29120827, y: 0.11653151, z: 0}
