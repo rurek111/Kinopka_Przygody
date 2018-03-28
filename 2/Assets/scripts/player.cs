@@ -15,6 +15,7 @@ public class player : MonoBehaviour {
 	//Stats
 	public int currentHP;
 	public int maxHP = 5;
+	public int state;
 
 
 	// Use this for initialization
@@ -24,8 +25,9 @@ public class player : MonoBehaviour {
 		gm = GameObject.FindGameObjectWithTag ("game_master").GetComponent<game_master> ();
 
 		currentHP = maxHP;
+		state = 1;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
         anim.SetBool("grounded",grounded);
@@ -35,20 +37,26 @@ public class player : MonoBehaviour {
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
-        if (Input.GetAxis("Horizontal") > 0.1f)
+
+        else if (Input.GetAxis("Horizontal") > 0.1f)
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
+
         if (Input.GetButtonDown("Jump") && grounded == true)
         {
             rb2D.AddForce(Vector2.up * jump_power);
         }
+
 		if (currentHP > maxHP) {
 			currentHP = maxHP;
 		}
+
 		if (currentHP <= 0) {
 			Die ();
 		}
+
+		update_state ();
     }
 
 	void FixedUpdate () {
@@ -62,6 +70,7 @@ public class player : MonoBehaviour {
         {
             rb2D.velocity = new Vector2(-maxSpeed, rb2D.velocity.y);
         }
+
     }
 
 	void Die () {
@@ -101,6 +110,18 @@ public class player : MonoBehaviour {
 			gm.points += 1;
 		}
 	}
-}
-	
+
+	void update_state(){
+
+		if (Input.GetKeyDown(KeyCode.Alpha1)) {
+			state = 1;
+		}
+		else if (Input.GetKeyDown (KeyCode.Alpha2)) {
+			state = 2;
+		}
+	}
+
+}	
+
+
 
