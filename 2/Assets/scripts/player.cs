@@ -11,6 +11,8 @@ public class player : MonoBehaviour {
 	private Rigidbody2D rb2D;
     private Animator anim;
 	private game_master gm;
+	private float player_scale = 0.13739f; 
+
 
 	//Stats
 	public int currentHP;
@@ -30,17 +32,17 @@ public class player : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        anim.SetBool("grounded",grounded);
+        anim.SetBool("grounded", grounded);
         anim.SetFloat("speed", Mathf.Abs(rb2D.velocity.x));
 
         if (Input.GetAxis("Horizontal") < -0.1f)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+			transform.localScale = new Vector3(-player_scale, player_scale, player_scale);
         }
 
         else if (Input.GetAxis("Horizontal") > 0.1f)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+			transform.localScale = new Vector3(player_scale, player_scale, player_scale);
         }
 
         if (Input.GetButtonDown("Jump") && grounded == true)
@@ -93,15 +95,13 @@ public class player : MonoBehaviour {
 		}	
 	}
 
-	public int Knockback(float knockDur, float knockbackPwr, Vector3 knockbackDir){
+	public void Knockback(float knockDur, float knockbackPwr, Vector3 knockbackDir){
 
 		float timer = 0;
 		while (knockDur > timer) {
 			timer += Time.deltaTime;
 			rb2D.AddForce (new Vector3 (knockbackDir.x * -100, knockbackDir.y * knockbackPwr, transform.position.z));
 		}
-
-		return 0;
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
