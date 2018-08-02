@@ -8,6 +8,7 @@ public class player : MonoBehaviour {
 	public float speed = 50f;
 	public float jump_power = 150f;
 	public bool grounded;
+	public bool direction_normal = true;
 	private Rigidbody2D rb2D;
     private Animator anim;
 	private game_master gm;
@@ -38,11 +39,13 @@ public class player : MonoBehaviour {
         if (Input.GetAxis("Horizontal") < -0.1f)
         {
 			transform.localScale = new Vector3(-player_scale, player_scale, player_scale);
+			anim.SetBool("direction_normal", false);
         }
 
         else if (Input.GetAxis("Horizontal") > 0.1f)
         {
 			transform.localScale = new Vector3(player_scale, player_scale, player_scale);
+			anim.SetBool("direction_normal", true);
         }
 
         if (Input.GetButtonDown("Jump") && grounded == true)
