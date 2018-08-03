@@ -94,7 +94,6 @@ public class player : MonoBehaviour {
 		}
 		else {
 			currentHP -= dmg;
-			gameObject.GetComponent<Animation> ().Play ("player_dmg_flashing");
 		}	
 	}
 
