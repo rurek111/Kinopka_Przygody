@@ -4,16 +4,22 @@ using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
 public class player : MonoBehaviour {
-    public float maxSpeed = 3;
-	public float speed = 50f;
+    public float maxSpeed = 20f;
+	public float maxSpeed_walk = 10f;
+	public float maxSpeed_run = 20f;
+	public float speed = 400f;
+	public float speed_walk = 200f;
+	public float speed_run = 400f;
 	public float jump_power = 150f;
+
 	public bool grounded;
-	public bool direction_normal = true;
+	public bool direction_normal;
+	public bool prefer_run;
+
 	private Rigidbody2D rb2D;
     private Animator anim;
 	private game_master gm;
 	private float player_scale = 0.13739f; 
-
 
 	//Stats
 	public int currentHP;
@@ -29,7 +35,9 @@ public class player : MonoBehaviour {
 
 		currentHP = maxHP;
 		state = 1;
-	}
+		anim.SetBool("direction_normal", true);
+		anim.SetBool("prefer_run", true);
+			}
 
 	// Update is called once per frame
 	void Update () {
@@ -38,6 +46,7 @@ public class player : MonoBehaviour {
 
         if (Input.GetAxis("Horizontal") < -0.1f)
         {
+
 			transform.localScale = new Vector3(-player_scale, player_scale, player_scale);
 			anim.SetBool("direction_normal", false);
         }
@@ -59,6 +68,24 @@ public class player : MonoBehaviour {
 
 		if (currentHP <= 0) {
 			Die ();
+		}
+
+		if (Input.GetKeyDown ("left ctrl"))
+		{
+			if (prefer_run == true) {
+				anim.SetBool ("prefer_run", false);
+				maxSpeed = maxSpeed_walk;
+				speed = speed_walk;
+
+			} 
+			else if (prefer_run == false) {
+				anim.SetBool ("prefer_run", true);
+				prefer_run = !prefer_run;
+				maxSpeed = maxSpeed_run;
+				speed = speed_run;
+
+			}
+
 		}
 
 		update_state ();
@@ -83,6 +110,10 @@ public class player : MonoBehaviour {
 		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
 
 	}
+
+
+
+		
 		
 
 	public void Damage(int dmg){
@@ -121,6 +152,7 @@ public class player : MonoBehaviour {
 		else if (Input.GetKeyDown (KeyCode.Alpha2)) {
 			state = 2;
 		}
+
 	}
 
 }	
