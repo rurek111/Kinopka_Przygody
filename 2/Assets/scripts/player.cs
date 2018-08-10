@@ -4,12 +4,12 @@ using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
 public class player : MonoBehaviour {
-    public float maxSpeed = 20f;
-	public float maxSpeed_walk = 10f;
-	public float maxSpeed_run = 20f;
-	public float speed = 400f;
-	public float speed_walk = 200f;
-	public float speed_run = 400f;
+    public float maxSpeed = 7f;
+	public float maxSpeed_walk = 5f;
+	public float maxSpeed_run = 7f;
+	public float speed = 70f;
+	public float speed_walk = 50f;
+	public float speed_run = 70f;
 	public float jump_power = 150f;
 
 	public bool grounded;
