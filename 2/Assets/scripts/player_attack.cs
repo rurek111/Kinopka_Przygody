@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class player_attack : MonoBehaviour {
+public class player_attack : MonoBehaviour 
+{
 
 	private bool attacking = false;
 	private float attackTimer = 0;
@@ -10,26 +11,32 @@ public class player_attack : MonoBehaviour {
 	public Collider2D attackTrigger;
 	private Animator anim;
 
-	void Awake(){
+	void Awake()
+	{
 		anim = gameObject.GetComponent<Animator> ();
 		attackTrigger.enabled = false;
 	}
 
-	void Update(){
-		if (Input.GetKeyDown ("f") && !attacking) {
+	void Update()
+	{
+		if ( Input.GetKeyDown ("f")  && !attacking)
+			{
 			attacking = true;
 			attackTimer = attackCd;
 
 			attackTrigger.enabled = true;
-		}
-		if (attacking) {
-			if (attackTimer > 0) {
+			}
+		if (attacking) 
+			{
+			if (attackTimer > 0) 
+				{
 				attackTimer -= Time.deltaTime;
 			} 
-			else {
+			else 
+				{
 				attacking = false;
 				attackTrigger.enabled = false;
-			}
+				}
 			anim.SetBool ("attacking", attacking);
 		}
 	}
