@@ -10,9 +10,9 @@ public class game_master : MonoBehaviour
 	public Text pointsText;
 	public Text input_text;
 
-//	void Update()
-//	{
-//		pointsText.text = ("Points: " + points);
-//	}
+	void Update()
+	{
+	pointsText.text = ("Points: " + points);
+	}
 
 }
