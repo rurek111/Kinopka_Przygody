@@ -14,40 +14,33 @@ public class turretAI : MonoBehaviour {
 	public float bulletSpeed = 100f;
 	public float bulletTimer;
 
-	public bool awake = false;
-	public bool looking_right = false;
-	public bool armed = false;
-	public bool attacking = false;
-
 
 
 	public GameObject bullet;
 	public Transform target;
-	public Animator anim;
+	private Animator anim;
 	public Transform shootPointLeft, shootPointRight;
 
 	void Awake(){
-		anim = gameObject.GetComponent<Animator> ();
 	}
 
 	void Start(){
 		currentHP = maxHP;
+		anim = gameObject.GetComponent<Animator>();
+
 	}
 
 	void Update(){
 		
-		attacking = false;
 		anim.SetBool ("attacking", false);
 
 		RangeCheck ();
 
 		if (target.transform.position.x > transform.position.x) {
-			looking_right = false;
 			anim.SetBool ("looking_right", false);
 
 		}
 		if (target.transform.position.x < transform.position.x) {
-			looking_right = true;
 			anim.SetBool ("looking_right", false);
 
 		}
@@ -59,12 +52,10 @@ public class turretAI : MonoBehaviour {
 	void RangeCheck(){
 		distance = Vector3.Distance (transform.position, target.transform.position);
 		if (distance < wakeRange) {
-			awake = true;
 			anim.SetBool ("awake", true);
 
 		}
 		if (distance > wakeRange) {
-			awake = false;
 			anim.SetBool ("awake", false);
 
 		}
@@ -76,7 +67,6 @@ public class turretAI : MonoBehaviour {
 		if (bulletTimer >= shotInterval) 
 		{
 
-			attacking = true;
 			anim.SetBool ("attacking", true);
 			Vector2 directrion = target.transform.position - transform.position;
 			directrion.Normalize ();

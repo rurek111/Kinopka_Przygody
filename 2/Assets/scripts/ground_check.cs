@@ -16,22 +16,29 @@ public class ground_check : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        player.grounded = true;
 		anim.SetBool("grounded", true);
+		player.grounded = true;
+		player.prepare_jump = false;
+		anim.SetBool ("prepare_jump", false);
+		anim.SetBool ("jumping", false);
+		player.jumping = false;
 	
     }
 
     void OnTriggerStay2D(Collider2D col)
     {
-        player.grounded = true;
 		anim.SetBool("grounded", true);
+		player.grounded = true;
 
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
-        player.grounded = false;
 		anim.SetBool("grounded", false);
+		player.grounded = false;
+		player.prepare_jump = false;
+		anim.SetBool ("prepare_jump", false);
+		player.jumping = false;
 
     }
 }
