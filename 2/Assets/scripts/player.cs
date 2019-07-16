@@ -60,7 +60,22 @@ public class player : MonoBehaviour
 
 	void FixedUpdate () 
 	{
-		Walk ();
+		float h = Input.GetAxis("Horizontal");
+
+		rb2D.AddForce ((Vector2.right * speed) * h);
+
+
+
+
+        if (rb2D.velocity.x > maxSpeed)
+        {
+            rb2D.velocity = new Vector2(maxSpeed, rb2D.velocity.y);
+        }
+
+        if(rb2D.velocity.x < -maxSpeed)
+        {
+            rb2D.velocity = new Vector2(-maxSpeed, rb2D.velocity.y);
+        }
 
     }
 
@@ -92,23 +107,6 @@ public class player : MonoBehaviour
 			anim.SetBool("direction_normal", true);
 			rb2D.AddForce (Vector2.right * speed) ;
 		}
-	}
-
-	void Walk()
-	{
-		float h = Input.GetAxis("Horizontal");
-
-		rb2D.AddForce ((Vector2.right * speed) * h);
-
-		if (rb2D.velocity.x > maxSpeed)
-		{
-			rb2D.velocity = new Vector2(maxSpeed, rb2D.velocity.y);
-		}
-
-		if(rb2D.velocity.x < -maxSpeed)
-		{
-			rb2D.velocity = new Vector2(-maxSpeed, rb2D.velocity.y);
-		}	
 	}
 
 	void Jump ()
