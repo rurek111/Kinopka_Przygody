@@ -662,11 +662,8 @@ MonoBehaviour:
   shotInterval: 0.6
   bulletSpeed: 10
   bulletTimer: 0
-  awake: 0
-  looking_right: 1
   bullet: {fileID: 1338280147595498, guid: 911e64f5b3042bb4291da6df3c6b2a97, type: 2}
   target: {fileID: 0}
-  anim: {fileID: 0}
   shootPointLeft: {fileID: 4495370616792160}
   shootPointRight: {fileID: 4902218930381766}
 --- !u!114 &114611727412438902
@@ -888,5 +885,5 @@ SpriteRenderer:
   m_Size: {x: 0.5, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0

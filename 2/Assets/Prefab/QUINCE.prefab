@@ -2499,9 +2499,12 @@ MonoBehaviour:
   speed_walk: 5
   speed_run: 7
   jump_power: 400
+  jump_timer: 0
   grounded: 1
+  prepare_jump: 0
   direction_normal: 1
   prefer_run: 1
+  jumping: 0
   currentHP: 0
   maxHP: 5
   state: 0
