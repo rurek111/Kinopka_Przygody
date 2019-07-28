@@ -37,7 +37,7 @@ public class turretAI : MonoBehaviour {
 		RangeCheck ();
 
 		if (target.transform.position.x > transform.position.x) {
-			anim.SetBool ("looking_right", false);
+			anim.SetBool ("looking_right", true);
 
 		}
 		if (target.transform.position.x < transform.position.x) {
@@ -54,8 +54,9 @@ public class turretAI : MonoBehaviour {
 		if (distance < wakeRange) {
 			anim.SetBool ("awake", true);
 
-		}
-		if (distance > wakeRange) {
+
+        }
+        if (distance > wakeRange) {
 			anim.SetBool ("awake", false);
 
 		}
@@ -71,31 +72,29 @@ public class turretAI : MonoBehaviour {
 			Vector2 directrion = target.transform.position - transform.position;
 			directrion.Normalize ();
 
+            GameObject bulletClone;
 
-			if (!attackingRight) 
+            if (!attackingRight) 
 			{
 				
-				GameObject bulletClone;
 				bulletClone = Instantiate (bullet, shootPointLeft.transform.position, shootPointLeft.transform.rotation) as GameObject;
-				bulletClone.GetComponent<Rigidbody2D> ().velocity = directrion * bulletSpeed;
-				bulletTimer = 0;
 		
-
 			}
-			if (attackingRight) 
+			else
 			{
 				
-				GameObject bulletClone;
 				bulletClone = Instantiate (bullet, shootPointRight.transform.position, shootPointRight.transform.rotation) as GameObject;
-				bulletClone.GetComponent<Rigidbody2D> ().velocity = directrion * bulletSpeed;
-				bulletTimer = 0;
 			
-
 			}
+            bulletClone.GetComponent<Rigidbody2D>().velocity = directrion * bulletSpeed;
+            bulletTimer = 0;
+            anim.SetBool("attacking", false);
+            anim.SetBool("armed", false);
+            anim.SetBool("awake", false);
 
 
-		}
-	}
+        }
+    }
 
 	public void Damage (int damage){
 		currentHP -= damage;

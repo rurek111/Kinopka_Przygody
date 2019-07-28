@@ -8,8 +8,13 @@ public class ReptileDialogueTrigger : MonoBehaviour {
     public Dialogue dialogue;
     public Text nameBracket;
     public Text dialogueBracket;
+    private game_master gm;
 
 
+    void Start()
+    {
+        gm = GameObject.FindGameObjectWithTag("game_master").GetComponent<game_master>();
+    }
 
     public void TriggerDialogue()
     {
