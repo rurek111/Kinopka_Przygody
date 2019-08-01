@@ -4,12 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class ReptileDialogueTrigger : MonoBehaviour {
-    public Dialogue dialogue;
+public class NPCDialogueTrigger : MonoBehaviour {
     public Text nameBracket;
     public Text dialogueBracket;
     private game_master gm;
-
+    public DialogueFlow flow;
 
     void Start()
     {
@@ -18,7 +17,7 @@ public class ReptileDialogueTrigger : MonoBehaviour {
 
     public void TriggerDialogue()
     {
-        FindObjectOfType<dialogue_manager>().StartDialogue(dialogue);
+        FindObjectOfType<dialogue_manager>().StartDialogue(flow.dialogues);
     }
 
 
@@ -51,7 +50,7 @@ public class ReptileDialogueTrigger : MonoBehaviour {
         {
             nameBracket.text = (" ");
             dialogueBracket.text = (" ");
-
+            FindObjectOfType<dialogue_manager>().EndDialogue();
         }
     }
 
