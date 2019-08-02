@@ -24,7 +24,6 @@ public class dialogue_manager : MonoBehaviour {
 
     }
 
-
     public void StartDialogue(Dialogues dialogues)
     {
         nameBracket.text = dialogues.name;
@@ -96,7 +95,6 @@ public class dialogue_manager : MonoBehaviour {
         if(question == false)
         {
             DisableButtons();
-
             DisplayNextSentance();
 
         }
@@ -114,9 +112,11 @@ public class dialogue_manager : MonoBehaviour {
                 return;
             }
             Dialogue dialogueToAdd = givenDialogues.dialogue[dialogueIndex];
+            currentDialogue = dialogueToAdd;
             AddMore(dialogueToAdd);
-            DisplayNextSentance();
             question = false;
+            DisplayNextSentance();
+
         }
 
     }

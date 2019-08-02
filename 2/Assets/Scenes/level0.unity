@@ -7074,8 +7074,8 @@ GameObject:
   m_Component:
   - component: {fileID: 295180102}
   - component: {fileID: 295180103}
-  - component: {fileID: 295180104}
   - component: {fileID: 295180105}
+  - component: {fileID: 295180104}
   m_Layer: 0
   m_Name: Reptile
   m_TagString: Untagged
@@ -15248,7 +15248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.99999356
+  m_Length: 0.99999315
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1869901875}
   m_AttachedIK: {fileID: 605692109}
@@ -33221,7 +33221,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1423840695}
-  m_LocalRotation: {x: 0, y: 0, z: -0.16077732, w: 0.98699075}
+  m_LocalRotation: {x: 0, y: 0, z: -0.1607773, w: 0.9869907}
   m_LocalPosition: {x: 0.9999991, y: 0.0000056982344, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -33639,6 +33639,7 @@ MonoBehaviour:
   button2: {fileID: 1886910608}
   button3: {fileID: 1535450919}
   button4: {fileID: 1486355469}
+  question: 0
 --- !u!4 &1437556264
 Transform:
   m_ObjectHideFlags: 0
@@ -37961,8 +37962,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogues:
-    name: 
-    dialogue: []
+    name: platzholdyr
+    dialogue:
+    - dialogueName: 
+      sentences:
+      - text: element 0
+      continuations:
+      - nextDialogueIndex: 1
+        buttonName: 1
+      - nextDialogueIndex: 2
+        buttonName: 2
+    - dialogueName: 
+      sentences:
+      - text: emenet 1
+      continuations:
+      - nextDialogueIndex: 3
+        buttonName: 3
+    - dialogueName: 
+      sentences:
+      - text: element 2
+      continuations:
+      - nextDialogueIndex: 2
+        buttonName: 2
+      - nextDialogueIndex: 4
+        buttonName: 4
+    - dialogueName: 
+      sentences:
+      - text: element 3
+      continuations:
+      - nextDialogueIndex: 5
+        buttonName: 5
+    - dialogueName: 
+      sentences:
+      - text: element 4
+      continuations:
+      - nextDialogueIndex: 0
+        buttonName: 0
+      - nextDialogueIndex: 5
+        buttonName: 5
+    - dialogueName: 
+      sentences:
+      - text: element 5
+      continuations: []
 --- !u!1 &1623075485
 GameObject:
   m_ObjectHideFlags: 0
@@ -48492,7 +48533,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2083529133}
-  m_LocalRotation: {x: 0, y: 0, z: -0.9174767, w: 0.39778957}
+  m_LocalRotation: {x: 0, y: 0, z: -0.91747665, w: 0.39778954}
   m_LocalPosition: {x: 0.9986925, y: -0.27204466, z: 0}
   m_LocalScale: {x: 0.6927747, y: 0.692775, z: 0.692775}
   m_Children:
@@ -48512,7 +48553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 1.000004
+  m_Length: 1.0000038
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 666461524}
   m_AttachedIK: {fileID: 605692109}
