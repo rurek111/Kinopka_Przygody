@@ -23,6 +23,8 @@ public class ItemTrigger : MonoBehaviour {
             if (Input.GetKey("e"))
             {
                 PickUp();
+                dialogueBracket.text = (" ");
+                GameObject.Destroy(gameObject);
             }
         }
     }
@@ -34,6 +36,9 @@ public class ItemTrigger : MonoBehaviour {
             if (Input.GetKey("e"))
             {
                 PickUp();
+                dialogueBracket.text = (" ");
+                GameObject.Destroy(gameObject);
+
             }
         }
     }

@@ -4565,6 +4565,11 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114023931646333878, guid: 86f016d3cab57dc4eb80f79f4fd53d68,
+        type: 2}
+      propertyPath: inventory.textBracket
+      value: 
+      objectReference: {fileID: 864212736}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86f016d3cab57dc4eb80f79f4fd53d68, type: 2}
   m_IsPrefabParent: 0
@@ -23764,6 +23769,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1821276563977476, guid: acce7bfb1c33aa54a8481c9e74f14dca, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: acce7bfb1c33aa54a8481c9e74f14dca, type: 2}
   m_IsPrefabParent: 0
@@ -26106,6 +26115,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114202071035148772, guid: f86515a1b2ab0ad46b76d501f1e81f5c,
+        type: 2}
+      propertyPath: m_FontData.m_AlignByGeometry
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f86515a1b2ab0ad46b76d501f1e81f5c, type: 2}
   m_IsPrefabParent: 0
@@ -27757,7 +27771,7 @@ GameObject:
   - component: {fileID: 1173595722}
   m_Layer: 0
   m_Name: burak test item
-  m_TagString: burak
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27853,7 +27867,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueBracket: {fileID: 864212736}
-  item: {fileID: 0}
+  item:
+    name: special beetroot
+    value: 1
 --- !u!1 &1173882528
 GameObject:
   m_ObjectHideFlags: 0

@@ -32,6 +32,7 @@ public class player : MonoBehaviour
 	public int maxHP = 5;
 	public int state;
 
+    
     public Inventory inventory;
 
 	// Use this for initialization
@@ -55,7 +56,7 @@ public class player : MonoBehaviour
 		Move ();
 		Jump ();
 		HealthCheck ();
-		LeftControl ();
+		PressKey ();
 		update_state ();
     }
 
@@ -64,8 +65,6 @@ public class player : MonoBehaviour
 		float h = Input.GetAxis("Horizontal");
 
 		rb2D.AddForce ((Vector2.right * speed) * h);
-
-
 
 
         if (rb2D.velocity.x > maxSpeed)
@@ -214,6 +213,20 @@ public class player : MonoBehaviour
 		}
 
 	}
+
+    void Inventory()
+    {
+        if (Input.GetKey("i"))
+        {
+            inventory.ToggleInventory();
+        }
+    }
+
+    void PressKey()
+    {
+        LeftControl();
+        Inventory();
+    }
 
 }	
 

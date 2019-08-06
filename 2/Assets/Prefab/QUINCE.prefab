@@ -2508,7 +2508,14 @@ MonoBehaviour:
   currentHP: 5
   maxHP: 5
   state: 0
-  inventory: {fileID: 0}
+  inventory:
+    textBracket: {fileID: 0}
+    items:
+    - name: Stone
+      value: 3
+    - name: Stick
+      value: 2
+    displayed: 0
 --- !u!114 &114027620773848152
 MonoBehaviour:
   m_ObjectHideFlags: 1
