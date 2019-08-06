@@ -32,6 +32,7 @@ public class player : MonoBehaviour
 	public int maxHP = 5;
 	public int state;
 
+    public Inventory inventory;
 
 	// Use this for initialization
 	void Start () 

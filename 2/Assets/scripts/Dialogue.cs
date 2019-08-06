@@ -5,17 +5,13 @@ using UnityEngine;
 [System.Serializable]
 public class Dialogues
 {
-
     public string name;
-
     public Dialogue[] dialogue;
-
 }
 
 [System.Serializable]
 public class Dialogue
 {
-
     public string dialogueName;
     public Sentence[] sentences;
     public Continuations[] continuations;

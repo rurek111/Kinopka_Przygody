@@ -7,12 +7,12 @@ using UnityEngine.SceneManagement;
 public class NPCDialogueTrigger : MonoBehaviour {
     public Text nameBracket;
     public Text dialogueBracket;
-    private game_master gm;
+  ///  private game_master gm;
     public DialogueFlow flow;
 
     void Start()
     {
-        gm = GameObject.FindGameObjectWithTag("game_master").GetComponent<game_master>();
+     //   gm = GameObject.FindGameObjectWithTag("game_master").GetComponent<game_master>();
     }
 
     public void TriggerDialogue()
