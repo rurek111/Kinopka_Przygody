@@ -15,6 +15,7 @@ public class dialogue_manager : MonoBehaviour {
     Dialogues givenDialogues;
     Dialogue currentDialogue;
     public bool question = false;
+    Animator anim;
 
     private Queue <Sentence> sentences;
 	// Use this for initialization

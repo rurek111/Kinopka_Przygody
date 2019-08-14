@@ -8,6 +8,7 @@ public class NPCDialogueTrigger : MonoBehaviour {
     public Text nameBracket;
     public Text dialogueBracket;
     public DialogueFlow flow;
+    public Animator a;
 
     void Start()
     {
@@ -26,6 +27,8 @@ public class NPCDialogueTrigger : MonoBehaviour {
             if (Input.GetKey("e"))
             {
                 TriggerDialogue();
+                a.SetBool("talking", true);
+
             }
         }
     }
@@ -37,6 +40,8 @@ public class NPCDialogueTrigger : MonoBehaviour {
             if (Input.GetKey("e"))
             {
                 TriggerDialogue();
+                a.SetBool("talking", true);
+
             }
         }
     }
@@ -48,6 +53,8 @@ public class NPCDialogueTrigger : MonoBehaviour {
             nameBracket.text = (" ");
             dialogueBracket.text = (" ");
             FindObjectOfType<dialogue_manager>().EndDialogue();
+            a.SetBool("talking", false);
+
         }
     }
 
