@@ -6,8 +6,13 @@ using UnityEngine.UI;
 
 public class ItemTrigger : MonoBehaviour {
 
-    public Text dialogueBracket;
+    private Text dialogueBracket;
     public Item item;
+
+    void Start()
+    {
+        dialogueBracket = GameObject.Find("input_text").GetComponent(typeof(Text)) as Text;
+    }
 
     void PickUp()
     {

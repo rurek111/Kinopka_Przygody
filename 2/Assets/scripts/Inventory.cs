@@ -6,13 +6,17 @@ using UnityEngine.UI;
 [System.Serializable]
 public class Inventory
 {
-    public Text textBracket;
+   // public Text textBracket;
     public List<Item> items;
-    public bool displayed = false;
+    private bool displayed = false;
+    private game_master gm;
 
-    void Start()
+    private GameObject invUI;
+
+    public void Start()
     {
         items = new List<Item>();
+       
     }
 
     void Update()
@@ -22,35 +26,48 @@ public class Inventory
 
     public void ToggleInventory()
     {
-        if( !displayed)
+        gm = GameObject.FindGameObjectWithTag("game_master").GetComponent<game_master>();
+        
+
+        if ( !displayed)
         {
-            DisplayInventory();
+            gm.DisplayInventory(items);
             displayed = true;
         }
         else
         {
-            textBracket.text = (" ");
             displayed = false;
+            gm.HideInventory();
         }
+    }
+
+    public void Refresh()
+    {
+        gm.HideInventory();
+
+        if (displayed)
+        {
+            gm.DisplayInventory(items);
+        }
+     
+
     }
 
     public void AddItem(Item i)
     {
         items.Add(i);
+        Refresh();
     }
 
     public void DelItem(Item i)
     {
         items.Remove(i);
+        Refresh();
     }
 
-    public void DisplayInventory()
-    {
-        foreach(Item i in items)
-        {
-            textBracket.text += i.name + "\n";
-        }
 
-    }
+
+
+   
 
 }

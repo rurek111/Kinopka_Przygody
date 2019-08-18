@@ -9,4 +9,5 @@ public class Item  {
 
     public string name;
     public int value;
+    public Sprite s;
 }

@@ -197,6 +197,7 @@ public class player : MonoBehaviour
 		{
 			Destroy (col.gameObject);
 			gm.points += 1;
+            gm.Points();
 		}
 	}
 

@@ -2509,13 +2509,13 @@ MonoBehaviour:
   maxHP: 5
   state: 0
   inventory:
-    textBracket: {fileID: 0}
     items:
     - name: Stone
       value: 3
+      s: {fileID: 21300000, guid: f1701ae21b5b70f4581d253ba62fd945, type: 3}
     - name: Stick
       value: 2
-    displayed: 0
+      s: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!114 &114027620773848152
 MonoBehaviour:
   m_ObjectHideFlags: 1

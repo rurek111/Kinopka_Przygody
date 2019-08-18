@@ -8,25 +8,44 @@ public class dialogue_manager : MonoBehaviour {
 
     public Text nameBracket;
     public Text dialogueBracket;
-    public GameObject button1;
-    public GameObject button2;
-    public GameObject button3;
-    public GameObject button4;
+    public Button button1;
+    public Button button2;
+    public Button button3;
+    public Button button4;
     Dialogues givenDialogues;
     Dialogue currentDialogue;
     public bool question = false;
     Animator anim;
+    public bool finished = false;
 
     private Queue <Sentence> sentences;
 	// Use this for initialization
 
-	void Start () {
+	public void Start () {
         sentences = new Queue<Sentence> ();
+
+
+        button1 = GameObject.Find("continue").GetComponent(typeof(Button)) as Button;
+        button2 = GameObject.Find("continue (1)").GetComponent(typeof(Button)) as Button;
+        button3 = GameObject.Find("continue (2)").GetComponent(typeof(Button)) as Button;
+        button4 = GameObject.Find("continue (3)").GetComponent(typeof(Button)) as Button;
+        DisableButtons();
+
+        dialogueBracket = GameObject.Find("input_text").GetComponent(typeof(Text)) as Text;
+        nameBracket = GameObject.Find("speakers name").GetComponent(typeof(Text)) as Text;
+    }
+    void Awake()
+    {
+        button1 = GetComponent<Button>();
+        button2 = GetComponent<Button>();
+        button3 = GetComponent<Button>();
+        button4 = GetComponent<Button>();
 
     }
 
     public void StartDialogue(Dialogues dialogues)
     {
+        finished = false;
         nameBracket.text = dialogues.name;
         sentences.Clear();
 
@@ -50,7 +69,7 @@ public class dialogue_manager : MonoBehaviour {
     public void ShowContinue()
     {
         DisableButtons();
-        button1.SetActive(true);
+        button1.gameObject.SetActive(true);
         button1.GetComponentInChildren<Text>().text = "Continue";
     }
 
@@ -61,19 +80,19 @@ public class dialogue_manager : MonoBehaviour {
         int answers = dialogue.continuations.Length;
         if (answers > 0)
         {
-            button1.SetActive(true);
+            button1.gameObject.SetActive(true);
             button1.GetComponentInChildren<Text>().text = dialogue.continuations[0].buttonName;
             if (answers > 1)
             {
-                button2.SetActive(true);
+                button2.gameObject.SetActive(true);
                 button2.GetComponentInChildren<Text>().text = dialogue.continuations[1].buttonName;
                 if (answers > 2)
                 {
-                    button3.SetActive(true);
+                    button3.gameObject.SetActive(true);
                     button3.GetComponentInChildren<Text>().text = dialogue.continuations[2].buttonName;
                     if (answers > 3)
                     {
-                        button4.SetActive(true);
+                        button4.gameObject.SetActive(true);
                         button4.GetComponentInChildren<Text>().text = dialogue.continuations[3].buttonName;
 
                     }
@@ -84,10 +103,11 @@ public class dialogue_manager : MonoBehaviour {
 
     public void DisableButtons()
     {
-        button1.SetActive(false);
-        button2.SetActive(false);
-        button3.SetActive(false);
-        button4.SetActive(false);
+       
+        button1.gameObject.SetActive(false);
+        button2.gameObject.SetActive(false);
+        button3.gameObject.SetActive(false);
+        button4.gameObject.SetActive(false);
     }
 
     public void ChoiceMade( int j)
@@ -145,11 +165,11 @@ public class dialogue_manager : MonoBehaviour {
 
     public void EndDialogue()
     {
-        nameBracket.text = (" ");
-        dialogueBracket.text = (" ");
+        nameBracket.text = ("");
+        dialogueBracket.text = ("");
 
         DisableButtons();
-
+        finished = true;
 
     }
 }

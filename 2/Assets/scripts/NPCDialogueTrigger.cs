@@ -5,18 +5,33 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class NPCDialogueTrigger : MonoBehaviour {
-    public Text nameBracket;
-    public Text dialogueBracket;
-    public DialogueFlow flow;
-    public Animator a;
+    private Text nameBracket ;
+    private Text dialogueBracket;
+    private DialogueFlow flow;
+    private Animator a;
 
     void Start()
     {
+        a = gameObject.GetComponent(typeof(Animator)) as Animator;
+        flow = gameObject.GetComponent(typeof(DialogueFlow)) as DialogueFlow;
+        dialogueBracket = GameObject.Find("input_text").GetComponent(typeof(Text)) as Text;
+        nameBracket = GameObject.Find("speakers name").GetComponent(typeof(Text)) as Text;
+
     }
 
     public void TriggerDialogue()
     {
         FindObjectOfType<dialogue_manager>().StartDialogue(flow.dialogues);
+        
+    }
+
+    public void StopSpeach()
+    {
+        nameBracket.text = ("");
+        dialogueBracket.text = ("");
+        FindObjectOfType<dialogue_manager>().EndDialogue();
+        a.SetBool("talking", false);
+
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -43,6 +58,12 @@ public class NPCDialogueTrigger : MonoBehaviour {
                 a.SetBool("talking", true);
 
             }
+
+            if(FindObjectOfType<dialogue_manager>().finished)
+            {
+                StopSpeach();
+
+            }
         }
     }
 
@@ -50,11 +71,7 @@ public class NPCDialogueTrigger : MonoBehaviour {
     {
         if (col.CompareTag("Player"))
         {
-            nameBracket.text = (" ");
-            dialogueBracket.text = (" ");
-            FindObjectOfType<dialogue_manager>().EndDialogue();
-            a.SetBool("talking", false);
-
+            StopSpeach();
         }
     }
 
