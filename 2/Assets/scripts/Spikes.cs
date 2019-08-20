@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Spikes : MonoBehaviour {
 
-	private player Player;
+	private Player Player;
 
 	void Start(){
 	
-		Player = GameObject.FindGameObjectWithTag ("Player").GetComponent<player> ();
+		Player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
 
 	}
 

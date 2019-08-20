@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
-public class player : MonoBehaviour 
+public class Player : MonoBehaviour
 {
     public float maxSpeed = 7f;
 	public float maxSpeed_walk = 5f;
@@ -33,7 +33,7 @@ public class player : MonoBehaviour
 	public int state;
 
     
-    public Inventory inventory;
+    public PlayerInventory inventory;
 
 	// Use this for initialization
 	void Start () 
@@ -229,6 +229,11 @@ public class player : MonoBehaviour
         Inventory();
     }
 
+
+    public PlayerInventory GetInventory()
+    {
+        return inventory;
+    }
 }	
 
 

@@ -23,8 +23,15 @@ public class Continuations
 {
     public int nextDialogueIndex;
     public string buttonName;
+    public Prerequisite[] prerequisites;
 }
 
+[System.Serializable]
+public class Prerequisite
+{
+    public string name;
+    public bool satisfied = true;
+}
 
 
 [System.Serializable]
@@ -35,6 +42,9 @@ public class Sentence
     [TextArea(3, 15)]
 
     public string text;
-  ////  public bool question = false;
- //   public int answers = 0;
+    ////  public bool question = false;
+    //   public int answers = 0;
+
+    public Transfer[] exchanges;
+
 }

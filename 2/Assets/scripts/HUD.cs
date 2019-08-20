@@ -9,17 +9,17 @@ public class HUD : MonoBehaviour {
 
 	public Image HeartUI;
 
-	private player Player;
+	private Player player;
 
 	void Start (){
 	
-		Player = GameObject.FindGameObjectWithTag ("Player").GetComponent<player> ();
+		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
 
 	}
 
 	void Update (){
 	
-		HeartUI.sprite = HeartSprites [Player.currentHP];
+		HeartUI.sprite = HeartSprites [player.currentHP];
 	
 	}
 

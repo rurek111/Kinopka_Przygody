@@ -80,8 +80,11 @@ public class dialogue_manager : MonoBehaviour {
         int answers = dialogue.continuations.Length;
         if (answers > 0)
         {
+            
+            //if(dialogue.continuations[0].prerequisites[].satisfied == true)
             button1.gameObject.SetActive(true);
             button1.GetComponentInChildren<Text>().text = dialogue.continuations[0].buttonName;
+
             if (answers > 1)
             {
                 button2.gameObject.SetActive(true);
@@ -161,6 +164,14 @@ public class dialogue_manager : MonoBehaviour {
         }
         Sentence sentence = sentences.Dequeue();
         dialogueBracket.text = sentence.text;
+        if(sentence.exchanges.Length!=0)
+        {
+            foreach(Transfer t in sentence.exchanges)
+            {
+                t.Execute();
+            }
+        }
+
     }
 
     public void EndDialogue()

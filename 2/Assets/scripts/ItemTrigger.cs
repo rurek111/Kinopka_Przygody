@@ -16,7 +16,7 @@ public class ItemTrigger : MonoBehaviour {
 
     void PickUp()
     {
-        FindObjectOfType<player>().inventory.AddItem(item);
+        FindObjectOfType<Player>().inventory.AddItem(item);
     }
 
 

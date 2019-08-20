@@ -211,8 +211,8 @@ GameObject:
   - component: {fileID: 137347368939766774}
   - component: {fileID: 114085337004697944}
   - component: {fileID: 50840490179713580}
-  - component: {fileID: 114023931646333878}
   - component: {fileID: 61111632539575302}
+  - component: {fileID: 114781102434614410}
   m_Layer: 0
   m_Name: QUINCE
   m_TagString: Player
@@ -2481,41 +2481,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 20
---- !u!114 &114023931646333878
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1162396716953910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef4451f8a4814a449bfaec0f221121b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSpeed: 7
-  maxSpeed_walk: 5
-  maxSpeed_run: 7
-  speed: 7
-  speed_walk: 5
-  speed_run: 7
-  jump_power: 400
-  jump_timer: 0
-  grounded: 1
-  prepare_jump: 0
-  direction_normal: 1
-  prefer_run: 1
-  jumping: 0
-  currentHP: 5
-  maxHP: 5
-  state: 0
-  inventory:
-    items:
-    - name: Stone
-      value: 3
-      s: {fileID: 21300000, guid: f1701ae21b5b70f4581d253ba62fd945, type: 3}
-    - name: Stick
-      value: 2
-      s: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!114 &114027620773848152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3993,6 +3958,41 @@ MonoBehaviour:
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4502496411931958}
   m_AttachedIK: {fileID: 0}
+--- !u!114 &114781102434614410
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1162396716953910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4451f8a4814a449bfaec0f221121b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 7
+  maxSpeed_walk: 5
+  maxSpeed_run: 7
+  speed: 7
+  speed_walk: 5
+  speed_run: 7
+  jump_power: 350
+  jump_timer: 0
+  grounded: 1
+  prepare_jump: 0
+  direction_normal: 1
+  prefer_run: 1
+  jumping: 0
+  currentHP: 0
+  maxHP: 5
+  state: 0
+  inventory:
+    items:
+    - name: Stick
+      value: 4
+      s: {fileID: 21300000, guid: 6883c61e862dab946a858558789224cf, type: 3}
+    - name: Stone
+      value: 3
+      s: {fileID: 21300000, guid: f1701ae21b5b70f4581d253ba62fd945, type: 3}
 --- !u!114 &114781129621748734
 MonoBehaviour:
   m_ObjectHideFlags: 1
