@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[System.Serializable]
-public class Item
+[CreateAssetMenu(fileName ="New Item" , menuName = "Item")]
+public class Item : ScriptableObject
 {
 
 
-    public string name;
+    public string itemName;
     public int value;
     public Sprite s;
 }

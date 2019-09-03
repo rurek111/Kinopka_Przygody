@@ -4,6 +4,9 @@ using UnityEngine;
 
 [System.Serializable]
 
+
+
+
 public class Transfer  {
 
     public Item what;
@@ -12,6 +15,9 @@ public class Transfer  {
     private GameObject p;
     private Player player;
     private PlayerInventory yourInv;
+
+
+
 
     // Use this for initialization
     void Start () {
