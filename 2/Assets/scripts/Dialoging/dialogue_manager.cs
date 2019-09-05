@@ -163,13 +163,17 @@ public class dialogue_manager : MonoBehaviour {
             ShowContinue();
             question = false;
         }
-        Sentence sentence = sentences.Dequeue();
+        Sentence sentence = new Sentence();
+          sentence  = sentences.Dequeue();
         dialogueBracket.text = sentence.text;
-        if(sentence.exchanges.Length!=0)
+        if(sentence.exchanges.Length>0)
         {
             foreach(Transfer t in sentence.exchanges)
             {
-                t.Execute();
+                if (t != null)
+                {
+                    t.Execute();
+                }
             }
         }
 

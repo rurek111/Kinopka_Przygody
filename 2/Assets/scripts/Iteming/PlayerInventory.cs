@@ -13,13 +13,13 @@ public class PlayerInventory
     private GameObject invUI;
 
 
-    public List<Item> items;
+    public Inventory items;
 
 
 
     public void Start()
     {
-        items = new List<Item>();
+        items = new Inventory();
         gm = GameObject.FindGameObjectWithTag("game_master").GetComponent<game_master>();
 
     }
@@ -31,7 +31,7 @@ public class PlayerInventory
         if (!displayed)
         {
             displayed = true;
-            gm.DisplayInventory(items);
+            gm.DisplayInventory(items.items);
         }
         else
         {
@@ -48,7 +48,7 @@ public class PlayerInventory
 
         if (displayed)
         {
-            gm.DisplayInventory(items);
+            gm.DisplayInventory(items.items);
         }
 
 
@@ -57,13 +57,13 @@ public class PlayerInventory
 
     public void AddItem(Item i)
     {
-        items.Add(i);
+        items.AddItem(i);
         Refresh();
     }
 
     public void DelItem(Item i)
     {
-        items.Remove(i);
+        items.DelItem(i);
         Refresh();
     }
 

@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
 
     public void Start()
     {
-        items = new List<Item>();
+        //items = new List<Item>();
        
     }
 

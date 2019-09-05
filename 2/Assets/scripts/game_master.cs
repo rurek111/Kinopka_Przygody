@@ -53,7 +53,7 @@ public class game_master : MonoBehaviour
 
         foreach (Item i in items)
         {
-            inv_text.text += i.name + "\n";
+            inv_text.text += i.itemName + "\n";
         }
 
         InvPictures(items);
@@ -74,7 +74,7 @@ public class game_master : MonoBehaviour
 
 
             Vector3 newPosition = inv1.transform.position;
-            newPosition.y = newPosition.y - 1;
+            newPosition.y = newPosition.y - 10 * n;
             inv[n].transform.position = newPosition;
 
 
