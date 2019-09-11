@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
 	public int maxHP = 5;
 	public int state;
 
+   //// public bool dialoguing = false;
+
     
     public PlayerInventory inventory;
 
@@ -217,7 +219,7 @@ public class Player : MonoBehaviour
 
     void Inventory()
     {
-        if (Input.GetKey("i"))
+        if (Input.GetKeyDown("i"))
         {
             inventory.ToggleInventory();
         }

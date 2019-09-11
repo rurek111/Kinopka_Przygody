@@ -25,7 +25,7 @@ public class ItemTrigger : MonoBehaviour {
         if (col.CompareTag("Player"))
         {
             dialogueBracket.text = ("[E] to take");
-            if (Input.GetKey("e"))
+            if (Input.GetKeyDown("e"))
             {
                 PickUp();
                 dialogueBracket.text = (" ");
@@ -38,7 +38,7 @@ public class ItemTrigger : MonoBehaviour {
     {
         if (col.CompareTag("Player"))
         {
-            if (Input.GetKey("e"))
+            if (Input.GetKeyDown("e"))
             {
                 PickUp();
                 dialogueBracket.text = (" ");

@@ -39,7 +39,7 @@ public class NPCDialogueTrigger : MonoBehaviour {
         if (col.CompareTag("Player"))
         {
             dialogueBracket.text = ("[E] to talk");
-            if (Input.GetKey("e"))
+            if ((Input.GetKeyDown("e")) && ( FindObjectOfType<dialogue_manager>().talking==false ))
             {
                 TriggerDialogue();
                 a.SetBool("talking", true);
@@ -52,14 +52,14 @@ public class NPCDialogueTrigger : MonoBehaviour {
     {
         if (col.CompareTag("Player"))
         {
-            if (Input.GetKey("e"))
+            if ((Input.GetKeyDown("e")) && (FindObjectOfType<dialogue_manager>().talking == false))
             {
                 TriggerDialogue();
                 a.SetBool("talking", true);
 
             }
 
-            if(FindObjectOfType<dialogue_manager>().finished)
+            if(FindObjectOfType<dialogue_manager>().talking == false)
             {
                 StopSpeach();
 

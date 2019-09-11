@@ -16,7 +16,7 @@ public class dialogue_manager : MonoBehaviour {
     Dialogue currentDialogue;
     public bool question = false;
     Animator anim;
-    public bool finished = false;
+    public bool talking = false;
     
 
     private Queue <Sentence> sentences;
@@ -46,7 +46,7 @@ public class dialogue_manager : MonoBehaviour {
 
     public void StartDialogue(Dialogues dialogues)
     {
-        finished = false;
+        talking = true;
         nameBracket.text = dialogues.name;
         sentences.Clear();
 
@@ -185,7 +185,7 @@ public class dialogue_manager : MonoBehaviour {
         dialogueBracket.text = ("");
 
         DisableButtons();
-        finished = true;
+        talking = false;
 
     }
 }
