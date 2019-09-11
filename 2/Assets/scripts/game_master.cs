@@ -93,7 +93,7 @@ inv = new List<GameObject>();
             r.sprite = i.s;
 
             ImgRT.sizeDelta = delta_img;
-            ImgRT.localScale -= new Vector3(1F, 1F, 0);
+          ///  ImgRT.localScale -= new Vector3(1F, 1F, 0);
 
 
 
