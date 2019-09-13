@@ -1,0 +1,71 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+[System.Serializable]
+
+public class Journal
+{
+
+    public List<QuestLine> undone, done;
+    public bool displayed = false;
+    game_master gm;
+
+    public void Start()
+    {
+       // done = new List<QuestLine>;
+        gm = GameObject.FindGameObjectWithTag("game_master").GetComponent<game_master>();
+    }
+
+    public void ToggleJournal()
+    {
+        gm = GameObject.FindGameObjectWithTag("game_master").GetComponent<game_master>();
+
+
+        if (!displayed)
+        {
+            displayed = true;
+            gm.DisplayJournal(done, undone);
+        }
+        else
+        {
+            displayed = false;
+            gm.HideJournal();
+        }
+    }
+
+    public void Refresh()
+    {
+        gm = GameObject.FindGameObjectWithTag("game_master").GetComponent<game_master>();
+
+        gm.HideJournal();
+
+        if (displayed)
+        {
+            gm.DisplayJournal(done, undone);
+        }
+
+
+    }
+
+    public void StartQuestLine(QuestLine questLine, Quest quest = null)
+    {
+        if(quest == null)
+        {
+            quest = questLine.first;
+        }
+        undone.Add(questLine);
+        questLine.ongoing = quest;
+        Refresh();
+    }
+
+    public void FinishQuestLine(QuestLine questLine)
+    {
+        done.Add(questLine);
+        undone.Remove(questLine);
+        Refresh();
+
+    }
+
+}
+
+

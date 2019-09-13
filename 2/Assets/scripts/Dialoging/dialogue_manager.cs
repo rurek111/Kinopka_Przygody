@@ -177,6 +177,23 @@ public class dialogue_manager : MonoBehaviour {
             }
         }
 
+        if(sentence.questLineToProgress!=null)
+        {
+           
+                Player player = FindObjectOfType<Player>();
+                if(player.journal.undone.Contains(sentence.questLineToProgress))
+                {
+                    //
+                    player.journal.undone.Find(x => x.Equals(sentence.questLineToProgress)).Proceed(sentence.questLineToProgress ,sentence.questHowToProgress);
+                }
+                else
+                {
+                    player.journal.StartQuestLine(sentence.questLineToProgress, sentence.questHowToProgress);
+                }
+            
+          
+        }
+
     }
 
     public void EndDialogue()

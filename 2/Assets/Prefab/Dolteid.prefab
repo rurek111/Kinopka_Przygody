@@ -346,59 +346,65 @@ MonoBehaviour:
       sentences:
       - text: Hello, my name is Dolteid. Do you want me to tell you something about
           this land?
-        exchanges:
-        - what: {fileID: 11400000, guid: 53ca7fc7a7f45a04fbfde4af5dc3210c, type: 2}
-          recieve: 1
-          who: {fileID: 114571167920919822}
-        - what: {fileID: 11400000, guid: d650a91077acf5149af4fe3d90ea3270, type: 2}
-          recieve: 1
-          who: {fileID: 114571167920919822}
+        questLineToProgress: {fileID: 0}
+        questHowToProgress: {fileID: 0}
+        exchanges: []
       continuations:
       - nextDialogueIndex: 1
         buttonName: Of course I do!
-        prerequisites: []
       - nextDialogueIndex: 2
         buttonName: Certainly not!
-        prerequisites: []
     - dialogueName: if yes
       sentences:
       - text: This country is called Riparia. It spans among the sea, mountains and
           deserts.
+        questLineToProgress: {fileID: 0}
+        questHowToProgress: {fileID: 0}
         exchanges: []
       - text: Our land`s warden is called Septina. She is a nature fairy but recently
           she went missing. All Riparians hope she will eventually come back.
+        questLineToProgress: {fileID: 0}
+        questHowToProgress: {fileID: 0}
         exchanges: []
       - text: Finding her is our foremost priority, for our safety and well-being
           depend on it. Some beasts have already started to crawl out of their lairs.
+        questLineToProgress: {fileID: 11400000, guid: a19c2bc73ae62a140bff74eb5cc20f8b,
+          type: 2}
+        questHowToProgress: {fileID: 11400000, guid: 4841872e3c414ae41a544e3c4e9a79e2,
+          type: 2}
         exchanges: []
       - text: For instance the evil gnomes have installed harmful spikes in some places
           and they patiently wait, hidden in the bushes, seeking for the chance to
           throw poisonous berries at anyone passing by.
+        questLineToProgress: {fileID: 0}
+        questHowToProgress: {fileID: 0}
         exchanges: []
       - text: We really need help with finding Septina. Only her can restore order
           to this tormented land!
+        questLineToProgress: {fileID: 0}
+        questHowToProgress: {fileID: 0}
         exchanges: []
       continuations:
       - nextDialogueIndex: 3
         buttonName: Incredible!
-        prerequisites: []
       - nextDialogueIndex: 3
         buttonName: Boooring...
-        prerequisites: []
     - dialogueName: if no
       sentences:
       - text: Well, that`s too bad!
+        questLineToProgress: {fileID: 0}
+        questHowToProgress: {fileID: 0}
         exchanges: []
       continuations:
       - nextDialogueIndex: 3
         buttonName: Sorry!
-        prerequisites: []
       - nextDialogueIndex: 3
         buttonName: Something else?
-        prerequisites: []
     - dialogueName: farewell
       sentences:
       - text: May the nature help you in your efforts!
+        questLineToProgress: {fileID: 0}
+        questHowToProgress: {fileID: 0}
         exchanges: []
       continuations: []
 --- !u!114 &114194130581203756

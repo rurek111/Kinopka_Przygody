@@ -1513,47 +1513,52 @@ MonoBehaviour:
     - dialogueName: greeting
       sentences:
       - text: Greetings brave Quice! My name is Rasno the reptile.
+        questLineToProgress: {fileID: 0}
+        questHowToProgress: {fileID: 0}
         exchanges: []
       - text: Would you do me a favor and bring me ........ ?
+        questLineToProgress: {fileID: 0}
+        questHowToProgress: {fileID: 0}
         exchanges: []
       continuations:
       - nextDialogueIndex: 1
-        buttonName: I would do ANYTHING!!!!
-        prerequisites: []
+        buttonName: I will gladly do it.
       - nextDialogueIndex: 3
         buttonName: Could you repeat?
-        prerequisites: []
       - nextDialogueIndex: 2
         buttonName: I will not do it!
-        prerequisites: []
       - nextDialogueIndex: -1
         buttonName: Maybe later...
-        prerequisites: []
     - dialogueName: y
       sentences:
       - text: I am very glad. God luck and good speed!
+        questLineToProgress: {fileID: 11400000, guid: ee5736d02dd154a42ac011e546051334,
+          type: 2}
+        questHowToProgress: {fileID: 11400000, guid: a07687f773ab2474b8e58f12d9305372,
+          type: 2}
         exchanges: []
       continuations: []
     - dialogueName: n
       sentences:
       - text: This unfortunate circumstance saddens me deeply...
+        questLineToProgress: {fileID: 0}
+        questHowToProgress: {fileID: 0}
         exchanges: []
       continuations: []
     - dialogueName: repeat
       sentences:
       - text: As I have already told you, My name is Rasno the reptile. And I asked
           you to bring me ........?
+        questLineToProgress: {fileID: 0}
+        questHowToProgress: {fileID: 0}
         exchanges: []
       continuations:
       - nextDialogueIndex: 1
         buttonName: I will do it
-        prerequisites: []
       - nextDialogueIndex: 2
         buttonName: I will not
-        prerequisites: []
       - nextDialogueIndex: -1
         buttonName: I cannot decide yet!
-        prerequisites: []
 --- !u!114 &114893391045980204
 MonoBehaviour:
   m_ObjectHideFlags: 1

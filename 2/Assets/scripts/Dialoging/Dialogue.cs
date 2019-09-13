@@ -37,8 +37,8 @@ public class Sentence
     [TextArea(3, 15)]
 
     public string text;
-
-
+    public QuestLine questLineToProgress;
+    public Quest questHowToProgress;
     public Transfer[] exchanges;
 
 }

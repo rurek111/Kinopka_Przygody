@@ -32,8 +32,10 @@ public class Player : MonoBehaviour
 	public int maxHP = 5;
 	public int state;
 
-   //// public bool dialoguing = false;
+    public int exp = 0;
 
+    //// public bool dialoguing = false;
+    public Journal journal;
     
     public PlayerInventory inventory;
 
@@ -225,10 +227,21 @@ public class Player : MonoBehaviour
         }
     }
 
+    void Journal()
+    {
+        if (Input.GetKeyDown("j"))
+        {
+            journal.ToggleJournal();
+
+
+        }
+    }
+
     void PressKey()
     {
         LeftControl();
         Inventory();
+        Journal();
     }
 
 
