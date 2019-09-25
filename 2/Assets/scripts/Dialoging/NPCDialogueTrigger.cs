@@ -22,15 +22,15 @@ public class NPCDialogueTrigger : MonoBehaviour {
     public void TriggerDialogue()
     {
         FindObjectOfType<dialogue_manager>().StartDialogue(flow.dialogues);
-        
+        a.SetBool("talking", true);
+
     }
 
-    public void StopSpeach()
+    public void StopSpeech()
     {
-        nameBracket.text = ("");
-        dialogueBracket.text = ("");
-        FindObjectOfType<dialogue_manager>().EndDialogue();
+
         a.SetBool("talking", false);
+        FindObjectOfType<dialogue_manager>().terminate = false;
 
     }
 
@@ -42,8 +42,6 @@ public class NPCDialogueTrigger : MonoBehaviour {
             if ((Input.GetKeyDown("e")) && ( FindObjectOfType<dialogue_manager>().talking==false ))
             {
                 TriggerDialogue();
-                a.SetBool("talking", true);
-
             }
         }
     }
@@ -52,17 +50,16 @@ public class NPCDialogueTrigger : MonoBehaviour {
     {
         if (col.CompareTag("Player"))
         {
+          //  dialogueBracket.text = ("[E] to talk");
+
             if ((Input.GetKeyDown("e")) && (FindObjectOfType<dialogue_manager>().talking == false))
             {
                 TriggerDialogue();
-                a.SetBool("talking", true);
-
             }
 
-            if(FindObjectOfType<dialogue_manager>().talking == false)
+            if(FindObjectOfType<dialogue_manager>().terminate == true)
             {
-                StopSpeach();
-
+                StopSpeech();
             }
         }
     }
@@ -71,7 +68,8 @@ public class NPCDialogueTrigger : MonoBehaviour {
     {
         if (col.CompareTag("Player"))
         {
-            StopSpeach();
+            FindObjectOfType<dialogue_manager>().EndDialogue();
+            StopSpeech();
         }
     }
 

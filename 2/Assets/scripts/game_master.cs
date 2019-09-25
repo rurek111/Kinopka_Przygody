@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class game_master : MonoBehaviour
+public class game_master : MonoBehaviour //mostly UI
 {
 
 	public int points;
@@ -13,6 +13,7 @@ public class game_master : MonoBehaviour
     private GameObject item1, questline1;
     private Vector2 delta_img;
     private List <GameObject> inv, jourD, jourUD;
+    public Sprite checkmark, cross;
 
     void Start()
     {
@@ -161,30 +162,41 @@ public class game_master : MonoBehaviour
             jourUD[n].transform.position = newPosition;
 
 
-            //         r.sprite.bounds.SetMinMax(new Vector3(-0.1f, -0.1f, 0.0f), new Vector3(0.1f, 0.1f, 0.0f));
+            Text[] t = jourUD[n].GetComponentsInChildren<Text>();
+            t[0].text = i.questLineName;
+            t[1].text = i.ongoing.toDo;
+            Image image = jourUD[n].GetComponentInChildren<Image>();
+
+          //  image.sprite = (cross);
+            image.gameObject.SetActive(false);
+
+            n++;
+        }
+
+        foreach (QuestLine i in done)
+        {
+            jourUD.Add(Instantiate(questline1, questline1.transform.parent));
 
 
-          //  RectTransform ImgRT = jourUD[n].GetComponentInChildren<RectTransform>();
-            //      ImgRT.sizeDelta = new Vector2(2f, 2f);
-
-
-            //            SpriteRenderer r = inv[n].GetComponentInChildren<SpriteRenderer>();
-         //   Image r = jourUD[n].GetComponentInChildren<Image>();
-
-//            r.sprite = i.s;
-
-  //          ImgRT.sizeDelta = delta_img;
-            ///  ImgRT.localScale -= new Vector3(1F, 1F, 0);
-
-
-
-           //// Text t = jourUD[n].GetComponent<Text>();
-         
+            Vector3 newPosition = questline1.transform.position;
+            newPosition.y = newPosition.y - space_width * n;
+            jourUD[n].transform.position = newPosition;
 
 
             Text[] t = jourUD[n].GetComponentsInChildren<Text>();
             t[0].text = i.questLineName;
             t[1].text = i.ongoing.toDo;
+            Image image = jourUD[n].GetComponentInChildren<Image>();
+            //image.gameObject.SetActive(false);
+            if(i.success)
+            {
+                image.sprite = (checkmark);
+            }
+            else
+            {
+                image.sprite = (cross);
+            }
+
 
             n++;
         }

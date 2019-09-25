@@ -349,6 +349,7 @@ MonoBehaviour:
         questLineToProgress: {fileID: 0}
         questHowToProgress: {fileID: 0}
         exchanges: []
+        changes: []
       continuations:
       - nextDialogueIndex: 1
         buttonName: Of course I do!
@@ -361,11 +362,13 @@ MonoBehaviour:
         questLineToProgress: {fileID: 0}
         questHowToProgress: {fileID: 0}
         exchanges: []
+        changes: []
       - text: Our land`s warden is called Septina. She is a nature fairy but recently
           she went missing. All Riparians hope she will eventually come back.
         questLineToProgress: {fileID: 0}
         questHowToProgress: {fileID: 0}
         exchanges: []
+        changes: []
       - text: Finding her is our foremost priority, for our safety and well-being
           depend on it. Some beasts have already started to crawl out of their lairs.
         questLineToProgress: {fileID: 11400000, guid: a19c2bc73ae62a140bff74eb5cc20f8b,
@@ -373,17 +376,20 @@ MonoBehaviour:
         questHowToProgress: {fileID: 11400000, guid: 4841872e3c414ae41a544e3c4e9a79e2,
           type: 2}
         exchanges: []
+        changes: []
       - text: For instance the evil gnomes have installed harmful spikes in some places
           and they patiently wait, hidden in the bushes, seeking for the chance to
           throw poisonous berries at anyone passing by.
         questLineToProgress: {fileID: 0}
         questHowToProgress: {fileID: 0}
         exchanges: []
+        changes: []
       - text: We really need help with finding Septina. Only her can restore order
           to this tormented land!
         questLineToProgress: {fileID: 0}
         questHowToProgress: {fileID: 0}
         exchanges: []
+        changes: []
       continuations:
       - nextDialogueIndex: 3
         buttonName: Incredible!
@@ -395,6 +401,7 @@ MonoBehaviour:
         questLineToProgress: {fileID: 0}
         questHowToProgress: {fileID: 0}
         exchanges: []
+        changes: []
       continuations:
       - nextDialogueIndex: 3
         buttonName: Sorry!
@@ -406,6 +413,7 @@ MonoBehaviour:
         questLineToProgress: {fileID: 0}
         questHowToProgress: {fileID: 0}
         exchanges: []
+        changes: []
       continuations: []
 --- !u!114 &114194130581203756
 MonoBehaviour:
@@ -485,9 +493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3edc2845be8fe70479c558b5d0f1ac63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items:
-  - {fileID: 11400000, guid: 53ca7fc7a7f45a04fbfde4af5dc3210c, type: 2}
-  - {fileID: 11400000, guid: 53ca7fc7a7f45a04fbfde4af5dc3210c, type: 2}
+  items: []
 --- !u!114 &114883418328252250
 MonoBehaviour:
   m_ObjectHideFlags: 1

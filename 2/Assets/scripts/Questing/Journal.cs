@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[System.Serializable]
 
-public class Journal
+public class Journal:MonoBehaviour
 {
 
     public List<QuestLine> undone, done;

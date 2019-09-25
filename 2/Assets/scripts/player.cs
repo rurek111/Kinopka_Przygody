@@ -245,10 +245,10 @@ public class Player : MonoBehaviour
     }
 
 
-    public PlayerInventory GetInventory()
-    {
-        return inventory;
-    }
+   // public PlayerInventory GetInventory()
+  //  {
+  //      return inventory;
+  //  }
 }	
 
 

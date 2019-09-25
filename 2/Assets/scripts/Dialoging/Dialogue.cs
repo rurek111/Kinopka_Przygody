@@ -40,5 +40,6 @@ public class Sentence
     public QuestLine questLineToProgress;
     public Quest questHowToProgress;
     public Transfer[] exchanges;
+    public StateToBeChanged[] changes;
 
 }

@@ -17,7 +17,8 @@ public class dialogue_manager : MonoBehaviour {
     public bool question = false;
     Animator anim;
     public bool talking = false;
-    
+    public bool terminate = false;
+
 
     private Queue <Sentence> sentences;
 	// Use this for initialization
@@ -166,33 +167,11 @@ public class dialogue_manager : MonoBehaviour {
         Sentence sentence = new Sentence();
           sentence  = sentences.Dequeue();
         dialogueBracket.text = sentence.text;
-        if(sentence.exchanges.Length>0)
-        {
-            foreach(Transfer t in sentence.exchanges)
-            {
-                if (t != null)
-                {
-                    t.Execute();
-                }
-            }
-        }
 
-        if(sentence.questLineToProgress!=null)
-        {
-           
-                Player player = FindObjectOfType<Player>();
-                if(player.journal.undone.Contains(sentence.questLineToProgress))
-                {
-                    //
-                    player.journal.undone.Find(x => x.Equals(sentence.questLineToProgress)).Proceed(sentence.questLineToProgress ,sentence.questHowToProgress);
-                }
-                else
-                {
-                    player.journal.StartQuestLine(sentence.questLineToProgress, sentence.questHowToProgress);
-                }
-            
-          
-        }
+
+        ExecuteExchanges(sentence);
+        UpdateJournal(sentence);
+        SatisfyStates(sentence);
 
     }
 
@@ -203,6 +182,56 @@ public class dialogue_manager : MonoBehaviour {
 
         DisableButtons();
         talking = false;
+        terminate = true;
+
+    }
+
+    public void SatisfyStates(Sentence sentence)
+    {
+        if (sentence.changes.Length > 0)
+        {
+            foreach (StateToBeChanged t in sentence.changes)
+            {
+                if (t != null)
+                {
+                    State_satisfier stateSat = GameObject.FindGameObjectWithTag("game_master").GetComponent<State_satisfier>();
+                    stateSat.Set(t.statesName, t.name, t.toBe);
+                }
+            }
+        }
+    }
+
+        public void UpdateJournal(Sentence sentence)
+    {
+
+        if (sentence.questLineToProgress != null)
+        {
+
+            Player player = FindObjectOfType<Player>();
+            if (player.journal.undone.Contains(sentence.questLineToProgress))
+            {
+                //
+                player.journal.undone.Find(x => x.Equals(sentence.questLineToProgress)).Proceed(sentence.questLineToProgress, sentence.questHowToProgress);
+            }
+            else
+            {
+                player.journal.StartQuestLine(sentence.questLineToProgress, sentence.questHowToProgress);
+            }
+        }
+    }
+
+    public void ExecuteExchanges(Sentence sentence)
+    {
+        if (sentence.exchanges.Length > 0)
+        {
+            foreach (Transfer t in sentence.exchanges)
+            {
+                if (t != null)
+                {
+                    t.Execute();
+                }
+            }
+        }
 
     }
 }

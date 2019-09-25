@@ -266,6 +266,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4442970933911398}
+  - component: {fileID: 114013833340036564}
   - component: {fileID: 114559034509265208}
   - component: {fileID: 114869240752818250}
   - component: {fileID: 61372159032518204}
@@ -932,7 +933,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1011671933238330}
-  m_Mesh: {fileID: 43189484843351554, guid: 0e1ae25e9520edb428c34849e38458f0, type: 2}
+  m_Mesh: {fileID: 0}
 --- !u!61 &61372159032518204
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -1015,6 +1016,27 @@ MonoBehaviour:
   m_Frames:
   - {fileID: 11400000, guid: 2c1695db0769f7642a3f93d87b24cb1d, type: 2}
   - {fileID: 11400000, guid: 174dd50c31d5e044c93fd917cdcdbf76, type: 2}
+--- !u!114 &114013833340036564
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1532723744167898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4abb4595f6b136a4f97c67e4ff210554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statesName: RasnoStates
+  states:
+  - name: talked to
+    satisfied: 0
+  - name: gave quest
+    satisfied: 0
+  - name: dissapointed
+    satisfied: 0
+  - name: disappeared
+    satisfied: 0
 --- !u!114 &114059127007800662
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1516,10 +1538,15 @@ MonoBehaviour:
         questLineToProgress: {fileID: 0}
         questHowToProgress: {fileID: 0}
         exchanges: []
-      - text: Would you do me a favor and bring me ........ ?
+        changes:
+        - statesName: RasnoStates
+          name: talked to
+          toBe: 1
+      - text: Would you do me a favor and bring me a cup of water ?
         questLineToProgress: {fileID: 0}
         questHowToProgress: {fileID: 0}
         exchanges: []
+        changes: []
       continuations:
       - nextDialogueIndex: 1
         buttonName: I will gladly do it.
@@ -1537,6 +1564,13 @@ MonoBehaviour:
         questHowToProgress: {fileID: 11400000, guid: a07687f773ab2474b8e58f12d9305372,
           type: 2}
         exchanges: []
+        changes:
+        - statesName: gave quest
+          name: RasnoStates
+          toBe: 1
+        - statesName: disappointed
+          name: RasnoStates
+          toBe: 0
       continuations: []
     - dialogueName: n
       sentences:
@@ -1544,14 +1578,19 @@ MonoBehaviour:
         questLineToProgress: {fileID: 0}
         questHowToProgress: {fileID: 0}
         exchanges: []
+        changes:
+        - statesName: disappointed
+          name: RasnoStates
+          toBe: 1
       continuations: []
     - dialogueName: repeat
       sentences:
       - text: As I have already told you, My name is Rasno the reptile. And I asked
-          you to bring me ........?
+          you to bring me cup of water.
         questLineToProgress: {fileID: 0}
         questHowToProgress: {fileID: 0}
         exchanges: []
+        changes: []
       continuations:
       - nextDialogueIndex: 1
         buttonName: I will do it
@@ -1646,7 +1685,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 43172194534937248, guid: 8bc7eab0bacdb6d4b88025b86b528f1d, type: 2}
+  m_Mesh: {fileID: 0}
   m_Bones:
   - {fileID: 4504925301145728}
   - {fileID: 4552327756707726}
@@ -1703,7 +1742,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 43591792291942694, guid: 3cd7b759f0d4a374fbd97bb630782b0b, type: 2}
+  m_Mesh: {fileID: 0}
   m_Bones:
   - {fileID: 4504925301145728}
   m_BlendShapeWeights: []
@@ -1750,7 +1789,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 43624182941274210, guid: c0195709883d2ea49ba3094a6773aaa3, type: 2}
+  m_Mesh: {fileID: 0}
   m_Bones:
   - {fileID: 4124736558414412}
   - {fileID: 4920897753030520}
@@ -1799,7 +1838,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 43679112704552406, guid: 2c1695db0769f7642a3f93d87b24cb1d, type: 2}
+  m_Mesh: {fileID: 0}
   m_Bones:
   - {fileID: 4920897753030520}
   m_BlendShapeWeights: []
@@ -1846,7 +1885,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 43204927650196418, guid: d58f12b2aee6eaf46a638341dbfd248d, type: 2}
+  m_Mesh: {fileID: 0}
   m_Bones:
   - {fileID: 4124736558414412}
   - {fileID: 4920897753030520}
@@ -1895,7 +1934,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 43561825964451004, guid: 7ea16dd8c1fa5da46999bdfd208b60d4, type: 2}
+  m_Mesh: {fileID: 0}
   m_Bones:
   - {fileID: 4873568623162662}
   - {fileID: 4150510520014930}
