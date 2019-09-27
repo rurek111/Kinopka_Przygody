@@ -8,10 +8,7 @@ public class dialogue_manager : MonoBehaviour {
 
     public Text nameBracket;
     public Text dialogueBracket;
-    public Button button1;
-    public Button button2;
-    public Button button3;
-    public Button button4;
+    public Button[] buttons = new Button[4];
     Dialogues givenDialogues;
     Dialogue currentDialogue;
     public bool question = false;
@@ -27,10 +24,10 @@ public class dialogue_manager : MonoBehaviour {
         sentences = new Queue<Sentence> ();
 
 
-        button1 = GameObject.Find("continue").GetComponent(typeof(Button)) as Button;
-        button2 = GameObject.Find("continue (1)").GetComponent(typeof(Button)) as Button;
-        button3 = GameObject.Find("continue (2)").GetComponent(typeof(Button)) as Button;
-        button4 = GameObject.Find("continue (3)").GetComponent(typeof(Button)) as Button;
+        buttons[0] = GameObject.Find("continue").GetComponent(typeof(Button)) as Button;
+        buttons[1] = GameObject.Find("continue (1)").GetComponent(typeof(Button)) as Button;
+        buttons[2] = GameObject.Find("continue (2)").GetComponent(typeof(Button)) as Button;
+        buttons[3] = GameObject.Find("continue (3)").GetComponent(typeof(Button)) as Button;
         DisableButtons();
 
         dialogueBracket = GameObject.Find("input_text").GetComponent(typeof(Text)) as Text;
@@ -38,10 +35,10 @@ public class dialogue_manager : MonoBehaviour {
     }
     void Awake()
     {
-        button1 = GetComponent<Button>();
-        button2 = GetComponent<Button>();
-        button3 = GetComponent<Button>();
-        button4 = GetComponent<Button>();
+        buttons[0] = GetComponent<Button>();
+        buttons[1] = GetComponent<Button>();
+        buttons[2] = GetComponent<Button>();
+        buttons[3] = GetComponent<Button>();
 
     }
 
@@ -52,7 +49,22 @@ public class dialogue_manager : MonoBehaviour {
         sentences.Clear();
 
         givenDialogues = dialogues;
-        currentDialogue = dialogues.dialogue[0];
+        currentDialogue = null; //dialogues.dialogue[0];//
+        foreach(Dialogue d in dialogues.dialogue)
+        {
+            if((d.prerequisiteForThisToBeBeggining.name.Length > 0)|| (d.prerequisiteForThisToBeBeggining.name.Length > 0))
+            {
+                if(d.prerequisiteForThisToBeBeggining.SatifiedPrerequisite())
+                {
+                    currentDialogue = d;//finds first fitting opening
+                    break;
+                }
+            }
+        }
+        if(currentDialogue==null)
+        {
+            currentDialogue = dialogues.dialogue.Find(i => i.usualBeggining == true);//if didnt find
+        }
 
         AddMore(currentDialogue);
 
@@ -71,8 +83,26 @@ public class dialogue_manager : MonoBehaviour {
     public void ShowContinue()
     {
         DisableButtons();
-        button1.gameObject.SetActive(true);
-        button1.GetComponentInChildren<Text>().text = "Continue";
+        buttons[0].gameObject.SetActive(true);
+        buttons[0].GetComponentInChildren<Text>().text = "Continue";
+    }
+
+    public void ShowContinuation(Dialogue dialogue, int i)
+    {
+        if((dialogue.continuations[i].prerequisite.name.Length<1)||(dialogue.continuations[i].prerequisite.statesName.Length < 1))
+        {
+            buttons[i].gameObject.SetActive(true);
+            buttons[i].GetComponentInChildren<Text>().text = dialogue.continuations[i].buttonName;
+        }
+        else
+        {
+            if (dialogue.continuations[i].prerequisite.SatifiedPrerequisite() == true)
+            {
+                buttons[i].gameObject.SetActive(true);
+                buttons[i].GetComponentInChildren<Text>().text = dialogue.continuations[i].buttonName;
+            }
+        }
+       
     }
 
     public void ShowButtons(Dialogue dialogue)
@@ -82,24 +112,19 @@ public class dialogue_manager : MonoBehaviour {
         int answers = dialogue.continuations.Length;
         if (answers > 0)
         {
-            
-            //if(dialogue.continuations[0].prerequisites[].satisfied == true)
-            button1.gameObject.SetActive(true);
-            button1.GetComponentInChildren<Text>().text = dialogue.continuations[0].buttonName;
+            ShowContinuation(dialogue, 0);
 
             if (answers > 1)
             {
-                button2.gameObject.SetActive(true);
-                button2.GetComponentInChildren<Text>().text = dialogue.continuations[1].buttonName;
+                ShowContinuation(dialogue, 1);
+
                 if (answers > 2)
                 {
-                    button3.gameObject.SetActive(true);
-                    button3.GetComponentInChildren<Text>().text = dialogue.continuations[2].buttonName;
+                    ShowContinuation(dialogue, 2);
+
                     if (answers > 3)
                     {
-                        button4.gameObject.SetActive(true);
-                        button4.GetComponentInChildren<Text>().text = dialogue.continuations[3].buttonName;
-
+                        ShowContinuation(dialogue, 3);
                     }
                 }
             }
@@ -108,11 +133,10 @@ public class dialogue_manager : MonoBehaviour {
 
     public void DisableButtons()
     {
-       
-        button1.gameObject.SetActive(false);
-        button2.gameObject.SetActive(false);
-        button3.gameObject.SetActive(false);
-        button4.gameObject.SetActive(false);
+        buttons[0].gameObject.SetActive(false);
+        buttons[1].gameObject.SetActive(false);
+        buttons[2].gameObject.SetActive(false);
+        buttons[3].gameObject.SetActive(false);
     }
 
     public void ChoiceMade( int j)
@@ -208,15 +232,24 @@ public class dialogue_manager : MonoBehaviour {
         {
 
             Player player = FindObjectOfType<Player>();
-            if (player.journal.undone.Contains(sentence.questLineToProgress))
+
+            if (player.journal.done.Contains(sentence.questLineToProgress))
             {
-                //
-                player.journal.undone.Find(x => x.Equals(sentence.questLineToProgress)).Proceed(sentence.questLineToProgress, sentence.questHowToProgress);
+                return;
             }
             else
             {
-                player.journal.StartQuestLine(sentence.questLineToProgress, sentence.questHowToProgress);
+                if (player.journal.undone.Contains(sentence.questLineToProgress))
+                {
+                    //
+                    player.journal.undone.Find(x => x.Equals(sentence.questLineToProgress)).Proceed(sentence.fromQuest, sentence.toQuest);
+                }
+                else
+                {
+                    player.journal.StartQuestLine(sentence.questLineToProgress, sentence.toQuest);
+                }
             }
+               
         }
     }
 

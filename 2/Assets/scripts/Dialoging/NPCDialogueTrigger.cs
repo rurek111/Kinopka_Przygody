@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class NPCDialogueTrigger : MonoBehaviour {
-    private Text nameBracket ;
+    ///private Text nameBracket ;
     private Text dialogueBracket;
     private DialogueFlow flow;
     private Animator a;
@@ -15,7 +15,7 @@ public class NPCDialogueTrigger : MonoBehaviour {
         a = gameObject.GetComponent(typeof(Animator)) as Animator;
         flow = gameObject.GetComponent(typeof(DialogueFlow)) as DialogueFlow;
         dialogueBracket = GameObject.Find("input_text").GetComponent(typeof(Text)) as Text;
-        nameBracket = GameObject.Find("speakers name").GetComponent(typeof(Text)) as Text;
+        //nameBracket = GameObject.Find("speakers name").GetComponent(typeof(Text)) as Text;
 
     }
 

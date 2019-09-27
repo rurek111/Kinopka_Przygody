@@ -6,7 +6,7 @@ using UnityEngine;
 public class Dialogues
 {
     public string name;
-    public Dialogue[] dialogue;
+    public List <Dialogue> dialogue;
 }
 
 [System.Serializable]
@@ -15,6 +15,8 @@ public class Dialogue
     public string dialogueName;
     public Sentence[] sentences;
     public Continuations[] continuations;
+    public StateToBeChanged prerequisiteForThisToBeBeggining = null;
+    public bool usualBeggining = false;
 
 }
 
@@ -23,7 +25,10 @@ public class Continuations
 {
     public int nextDialogueIndex;
     public string buttonName;
-//   public Prerequisite[] prerequisites;
+   public StateToBeChanged prerequisite;
+
+
+
 }
 
 
@@ -38,7 +43,7 @@ public class Sentence
 
     public string text;
     public QuestLine questLineToProgress;
-    public Quest questHowToProgress;
+    public Quest fromQuest, toQuest;
     public Transfer[] exchanges;
     public StateToBeChanged[] changes;
 

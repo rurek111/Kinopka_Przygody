@@ -30,6 +30,28 @@ public class States : MonoBehaviour
         state.satisfied = !state.satisfied;
     }
 
+    public bool Compare(string name, bool requirement)
+    {
+        State state = states.Find(i => i.name == name);
+        if(state == null)
+        {
+            return false;
+        }
+        else
+        {
+            if (state.satisfied == requirement)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+    }
+
 }
 
 
@@ -41,9 +63,17 @@ public class State
 }
 
 [System.Serializable]
-public class StateToBeChanged
+public class StateToBeChanged //changes but also exist as a prerequisite, so says how it SHOULD BE in order to smth
 {
     public string statesName;
     public string name;
     public bool toBe = true;
+
+    public bool SatifiedPrerequisite()
+    {
+        State_satisfier stateSat = GameObject.FindGameObjectWithTag("game_master").GetComponent<State_satisfier>();
+
+        return stateSat.Compare(statesName, name, toBe);
+    }
+
 }

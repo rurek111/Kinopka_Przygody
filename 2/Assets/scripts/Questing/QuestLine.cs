@@ -14,38 +14,96 @@ public class QuestLine : ScriptableObject
     public List<Quest> last;//can end in multiple ways
     public Quest ongoing;
 
-
-    public void Proceed(QuestLine questLine, Quest quest = null) //int path = 0 
+    public void ProceedPass(Quest to = null)
     {
-        ongoing.ended = true;
-        ongoing.success = true;
-        ongoing.reward.GiveReward();
 
-        if(last.Contains(questLine.ongoing))
+        if(ongoing != null)
         {
-            Debug.Log("QuestLine completed");
-            ended = true;
-            success = true;
-            reward.GiveReward();
-
-            //    Journal journal = FindObjectOfType<Journal>();
-            Player player = FindObjectOfType<Player>();
-            player.journal.FinishQuestLine(questLine);
+            ongoing.ended = true;
+            ongoing.success = true;
+            ongoing.reward.GiveReward();
 
 
+            if (last.Contains(ongoing))
+            {
+                Debug.Log("QuestLine completed");
+                ended = true;
+                success = true;
+                reward.GiveReward();
+
+                //    Journal journal = FindObjectOfType<Journal>();
+                Player player = FindObjectOfType<Player>();
+                player.journal.FinishQuestLine(this);
+
+                return;
+
+            }
+
+            else
+            {
+                if (to == null)
+                {
+                    ongoing = ongoing.next[0];
+                }
+                if (ongoing.next.Contains(to))
+                    ongoing = to;
+            }
+        }
+        
+      
+
+
+    }
+    public void Proceed(Quest from = null, Quest to = null) //int path = 0 
+    {
+
+        if(from == null && to == null)
+        {
             return;
+        }
 
 
+
+      if(to!=null)
+        {
+            if (to == ongoing)
+            {
+                return;
+            }
+
+            if (to.ended)
+            {
+                return;
+            }
+        }
+        else//probably first one firing again
+        {
+            if (to == first)
+            {
+                ongoing = to;//so just for sure
+                return;
+            }
+        }
+
+
+        if (from == null)
+        {
+            ProceedPass(to);
         }
         else
         {
-            if (quest == null)
+            if (from == ongoing)
             {
-                ongoing = ongoing.next[0];
+                ProceedPass(to);
             }
-            ongoing = quest;
+            else
+            {
+                return;
+            }
         }
+       
 
+        //should be done?
     }
 }
 

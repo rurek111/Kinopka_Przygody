@@ -933,7 +933,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1011671933238330}
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43189484843351554, guid: 0e1ae25e9520edb428c34849e38458f0, type: 2}
 --- !u!61 &61372159032518204
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -1033,7 +1033,7 @@ MonoBehaviour:
     satisfied: 0
   - name: gave quest
     satisfied: 0
-  - name: dissapointed
+  - name: disappointed
     satisfied: 0
   - name: disappeared
     satisfied: 0
@@ -1536,7 +1536,8 @@ MonoBehaviour:
       sentences:
       - text: Greetings brave Quice! My name is Rasno the reptile.
         questLineToProgress: {fileID: 0}
-        questHowToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
         exchanges: []
         changes:
         - statesName: RasnoStates
@@ -1544,60 +1545,143 @@ MonoBehaviour:
           toBe: 1
       - text: Would you do me a favor and bring me a cup of water ?
         questLineToProgress: {fileID: 0}
-        questHowToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
         exchanges: []
         changes: []
       continuations:
       - nextDialogueIndex: 1
         buttonName: I will gladly do it.
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
       - nextDialogueIndex: 3
         buttonName: Could you repeat?
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
       - nextDialogueIndex: 2
         buttonName: I will not do it!
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
       - nextDialogueIndex: -1
         buttonName: Maybe later...
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      prerequisiteForThisToBeBeggining:
+        statesName: RasnoStates
+        name: talked to
+        toBe: 0
+      usualBeggining: 0
     - dialogueName: y
       sentences:
       - text: I am very glad. God luck and good speed!
         questLineToProgress: {fileID: 11400000, guid: ee5736d02dd154a42ac011e546051334,
           type: 2}
-        questHowToProgress: {fileID: 11400000, guid: a07687f773ab2474b8e58f12d9305372,
-          type: 2}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 11400000, guid: a07687f773ab2474b8e58f12d9305372, type: 2}
         exchanges: []
         changes:
-        - statesName: gave quest
-          name: RasnoStates
+        - statesName: RasnoStates
+          name: gave quest
           toBe: 1
-        - statesName: disappointed
-          name: RasnoStates
+        - statesName: RasnoStates
+          name: disappointed
           toBe: 0
       continuations: []
+      prerequisiteForThisToBeBeggining:
+        statesName: 
+        name: 
+        toBe: 1
+      usualBeggining: 0
     - dialogueName: n
       sentences:
       - text: This unfortunate circumstance saddens me deeply...
         questLineToProgress: {fileID: 0}
-        questHowToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
         exchanges: []
         changes:
-        - statesName: disappointed
-          name: RasnoStates
+        - statesName: RasnoStates
+          name: disappointed
           toBe: 1
       continuations: []
+      prerequisiteForThisToBeBeggining:
+        statesName: 
+        name: 
+        toBe: 1
+      usualBeggining: 0
     - dialogueName: repeat
       sentences:
       - text: As I have already told you, My name is Rasno the reptile. And I asked
           you to bring me cup of water.
         questLineToProgress: {fileID: 0}
-        questHowToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
         exchanges: []
         changes: []
       continuations:
       - nextDialogueIndex: 1
         buttonName: I will do it
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
       - nextDialogueIndex: 2
         buttonName: I will not
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
       - nextDialogueIndex: -1
         buttonName: I cannot decide yet!
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      prerequisiteForThisToBeBeggining:
+        statesName: RasnoStates
+        name: disappointed
+        toBe: 1
+      usualBeggining: 0
+    - dialogueName: greetingRegular
+      sentences:
+      - text: Greetings, Quince of Riparia!
+        questLineToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
+        exchanges: []
+        changes: []
+      continuations:
+      - nextDialogueIndex: -1
+        buttonName: I have a cup of water
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      - nextDialogueIndex: -1
+        buttonName: Do you know where Septina is?
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      - nextDialogueIndex: -1
+        buttonName: I have to go
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 0
+      prerequisiteForThisToBeBeggining:
+        statesName: 
+        name: 
+        toBe: 1
+      usualBeggining: 1
 --- !u!114 &114893391045980204
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1685,7 +1769,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43172194534937248, guid: 8bc7eab0bacdb6d4b88025b86b528f1d, type: 2}
   m_Bones:
   - {fileID: 4504925301145728}
   - {fileID: 4552327756707726}
@@ -1742,7 +1826,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43591792291942694, guid: 3cd7b759f0d4a374fbd97bb630782b0b, type: 2}
   m_Bones:
   - {fileID: 4504925301145728}
   m_BlendShapeWeights: []
@@ -1789,7 +1873,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43624182941274210, guid: c0195709883d2ea49ba3094a6773aaa3, type: 2}
   m_Bones:
   - {fileID: 4124736558414412}
   - {fileID: 4920897753030520}
@@ -1838,7 +1922,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43679112704552406, guid: 2c1695db0769f7642a3f93d87b24cb1d, type: 2}
   m_Bones:
   - {fileID: 4920897753030520}
   m_BlendShapeWeights: []
@@ -1885,7 +1969,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43204927650196418, guid: d58f12b2aee6eaf46a638341dbfd248d, type: 2}
   m_Bones:
   - {fileID: 4124736558414412}
   - {fileID: 4920897753030520}
@@ -1934,7 +2018,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43561825964451004, guid: 7ea16dd8c1fa5da46999bdfd208b60d4, type: 2}
   m_Bones:
   - {fileID: 4873568623162662}
   - {fileID: 4150510520014930}

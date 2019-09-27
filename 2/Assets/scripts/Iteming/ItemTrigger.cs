@@ -17,6 +17,8 @@ public class ItemTrigger : MonoBehaviour {
     void PickUp()
     {
         FindObjectOfType<Player>().inventory.AddItem(item);
+        dialogueBracket.text = (" ");
+        GameObject.Destroy(gameObject);
     }
 
 
@@ -28,8 +30,7 @@ public class ItemTrigger : MonoBehaviour {
             if (Input.GetKeyDown("e"))
             {
                 PickUp();
-                dialogueBracket.text = (" ");
-                GameObject.Destroy(gameObject);
+
             }
         }
     }
@@ -41,9 +42,7 @@ public class ItemTrigger : MonoBehaviour {
             if (Input.GetKeyDown("e"))
             {
                 PickUp();
-                dialogueBracket.text = (" ");
-                GameObject.Destroy(gameObject);
-
+ 
             }
         }
     }

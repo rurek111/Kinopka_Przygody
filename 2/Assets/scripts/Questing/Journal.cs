@@ -52,8 +52,8 @@ public class Journal:MonoBehaviour
         {
             quest = questLine.first;
         }
-        undone.Add(questLine);
         questLine.ongoing = quest;
+        undone.Add(questLine);
         Refresh();
     }
 

@@ -30,16 +30,27 @@ public class State_satisfier : MonoBehaviour {
     public void Set(string statesName, string stateName, bool toWhat)
     {
         States s = allStates.Find( i => i.statesName == statesName);
-        if(toWhat)
+        if(s!=null)
         {
-            s.Satisfy(stateName);
+            if (toWhat)
+            {
+                s.Satisfy(stateName);
 
-        }
-        else
-        {
-            s.Dissatisfy(stateName);
+            }
+            else
+            {
+                s.Dissatisfy(stateName);
 
+            }
         }
+       
+    }
+
+    public bool Compare(string statesName, string stateName, bool requirement)
+    {
+        States s = allStates.Find(i => i.statesName == statesName);
+        return s.Compare( stateName,  requirement);
+
     }
 }
 

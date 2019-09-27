@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 114408292832170226}
   - component: {fileID: 61523263203808698}
   - component: {fileID: 114571167920919822}
+  - component: {fileID: 114767954736669358}
   - component: {fileID: 114073505053093708}
   - component: {fileID: 95641389980913102}
   m_Layer: 0
@@ -347,74 +348,160 @@ MonoBehaviour:
       - text: Hello, my name is Dolteid. Do you want me to tell you something about
           this land?
         questLineToProgress: {fileID: 0}
-        questHowToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
         exchanges: []
-        changes: []
+        changes:
+        - statesName: DolteidStates
+          name: talked to
+          toBe: 1
       continuations:
       - nextDialogueIndex: 1
         buttonName: Of course I do!
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
       - nextDialogueIndex: 2
         buttonName: Certainly not!
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      prerequisiteForThisToBeBeggining:
+        statesName: DolteidStates
+        name: talked to
+        toBe: 0
+      usualBeggining: 0
     - dialogueName: if yes
       sentences:
       - text: This country is called Riparia. It spans among the sea, mountains and
           deserts.
         questLineToProgress: {fileID: 0}
-        questHowToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
         exchanges: []
         changes: []
       - text: Our land`s warden is called Septina. She is a nature fairy but recently
           she went missing. All Riparians hope she will eventually come back.
         questLineToProgress: {fileID: 0}
-        questHowToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
         exchanges: []
         changes: []
       - text: Finding her is our foremost priority, for our safety and well-being
           depend on it. Some beasts have already started to crawl out of their lairs.
         questLineToProgress: {fileID: 11400000, guid: a19c2bc73ae62a140bff74eb5cc20f8b,
           type: 2}
-        questHowToProgress: {fileID: 11400000, guid: 4841872e3c414ae41a544e3c4e9a79e2,
-          type: 2}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
         exchanges: []
         changes: []
       - text: For instance the evil gnomes have installed harmful spikes in some places
           and they patiently wait, hidden in the bushes, seeking for the chance to
           throw poisonous berries at anyone passing by.
         questLineToProgress: {fileID: 0}
-        questHowToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
         exchanges: []
         changes: []
       - text: We really need help with finding Septina. Only her can restore order
           to this tormented land!
         questLineToProgress: {fileID: 0}
-        questHowToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
         exchanges: []
         changes: []
       continuations:
       - nextDialogueIndex: 3
         buttonName: Incredible!
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
       - nextDialogueIndex: 3
         buttonName: Boooring...
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      prerequisiteForThisToBeBeggining:
+        statesName: 
+        name: 
+        toBe: 1
+      usualBeggining: 0
     - dialogueName: if no
       sentences:
       - text: Well, that`s too bad!
         questLineToProgress: {fileID: 0}
-        questHowToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
         exchanges: []
         changes: []
       continuations:
       - nextDialogueIndex: 3
         buttonName: Sorry!
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
       - nextDialogueIndex: 3
         buttonName: Something else?
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      prerequisiteForThisToBeBeggining:
+        statesName: 
+        name: 
+        toBe: 1
+      usualBeggining: 0
     - dialogueName: farewell
       sentences:
       - text: May the nature help you in your efforts!
         questLineToProgress: {fileID: 0}
-        questHowToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
         exchanges: []
         changes: []
       continuations: []
+      prerequisiteForThisToBeBeggining:
+        statesName: 
+        name: 
+        toBe: 1
+      usualBeggining: 0
+    - dialogueName: hello again
+      sentences:
+      - text: Hello again, Quince!
+        questLineToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
+        exchanges: []
+        changes: []
+      continuations:
+      - nextDialogueIndex: 1
+        buttonName: Tell me about this land
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      - nextDialogueIndex: 3
+        buttonName: Hello to you too, Dolteid
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      - nextDialogueIndex: -1
+        buttonName: I do not have time
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      prerequisiteForThisToBeBeggining:
+        statesName: 
+        name: 
+        toBe: 1
+      usualBeggining: 1
 --- !u!114 &114194130581203756
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -494,6 +581,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
+--- !u!114 &114767954736669358
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1304854918444072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4abb4595f6b136a4f97c67e4ff210554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statesName: DolteidStates
+  states:
+  - name: talked to
+    satisfied: 0
 --- !u!114 &114883418328252250
 MonoBehaviour:
   m_ObjectHideFlags: 1
