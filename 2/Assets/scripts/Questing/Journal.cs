@@ -43,7 +43,8 @@ public class Journal:MonoBehaviour
             gm.DisplayJournal(done, undone);
         }
 
-
+        State_satisfier ss = GameObject.FindObjectOfType<State_satisfier>(); ;
+        ss.QuestStates();
     }
 
     public void StartQuestLine(QuestLine questLine, Quest quest = null)

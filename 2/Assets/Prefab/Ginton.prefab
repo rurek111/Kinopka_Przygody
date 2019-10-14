@@ -73,6 +73,9 @@ GameObject:
   - component: {fileID: 61895131783978206}
   - component: {fileID: 95079357486134402}
   - component: {fileID: 50639159934283590}
+  - component: {fileID: 114791358832899856}
+  - component: {fileID: 114579732580862080}
+  - component: {fileID: 114465671082403336}
   m_Layer: 0
   m_Name: Ginton
   m_TagString: Untagged
@@ -435,7 +438,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1077158611030144}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 190.3, y: 93.3, z: 0.070883}
+  m_LocalPosition: {x: 197.5, y: 37.1, z: 0.070883}
   m_LocalScale: {x: 0.94175565, y: 0.9417556, z: 0.9417556}
   m_Children:
   - {fileID: 4861819280981352}
@@ -734,6 +737,17 @@ MonoBehaviour:
   m_Bones: []
   m_BoneTransforms:
   - {fileID: 4279617919824180}
+--- !u!114 &114465671082403336
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1077158611030144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092d1e5e274cd544cae13b663373acd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114558297253285268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -754,6 +768,298 @@ MonoBehaviour:
   m_Bones: []
   m_BoneTransforms:
   - {fileID: 4967737730804686}
+--- !u!114 &114579732580862080
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1077158611030144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2670f4f8cf0a82647a21993e334ff7d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogues:
+    name: Ginton
+    dialogue:
+    - dialogueName: greeting
+      sentences:
+      - text: . . .
+        questLineToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
+        exchanges: []
+        changes: []
+      continuations:
+      - nextDialogueIndex: 1
+        buttonName: Hello....?
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      - nextDialogueIndex: 1
+        buttonName: Who are you?
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      - nextDialogueIndex: 2
+        buttonName: Move!
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      prerequisiteForThisToBeBeggining:
+        statesName: 
+        name: 
+        toBe: 1
+      usualBeggining: 1
+    - dialogueName: intro
+      sentences:
+      - text: My name is Ginton, but you can call me Jinton!
+        questLineToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
+        exchanges: []
+        changes: []
+      - text: I am fat!
+        questLineToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
+        exchanges: []
+        changes: []
+      - text: Or was I Jinton and you could call me Ginton?
+        questLineToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
+        exchanges: []
+        changes: []
+      continuations:
+      - nextDialogueIndex: 3
+        buttonName: You are Ginton
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      - nextDialogueIndex: 3
+        buttonName: You are Jinton
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      - nextDialogueIndex: 2
+        buttonName: You are fat!
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      - nextDialogueIndex: 3
+        buttonName: I don`t even know how to pronounce it!
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      prerequisiteForThisToBeBeggining:
+        statesName: 
+        name: 
+        toBe: 1
+      usualBeggining: 0
+    - dialogueName: if rude
+      sentences:
+      - text: Don`t be so rude!
+        questLineToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
+        exchanges: []
+        changes: []
+      continuations:
+      - nextDialogueIndex: 1
+        buttonName: Continue
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      prerequisiteForThisToBeBeggining:
+        statesName: 
+        name: 
+        toBe: 1
+      usualBeggining: 0
+    - dialogueName: magic
+      sentences:
+      - text: It doesn`t really matter right now. What really matters is magic!
+        questLineToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
+        exchanges: []
+        changes: []
+      continuations:
+      - nextDialogueIndex: 4
+        buttonName: Right.
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      - nextDialogueIndex: 4
+        buttonName: Why is it so?
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      - nextDialogueIndex: 2
+        buttonName: You are crazy, aren`t you?
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      prerequisiteForThisToBeBeggining:
+        statesName: 
+        name: 
+        toBe: 1
+      usualBeggining: 0
+    - dialogueName: magic2
+      sentences:
+      - text: Magic is present in our everyday life
+        questLineToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
+        exchanges: []
+        changes: []
+      continuations:
+      - nextDialogueIndex: 5
+        buttonName: Sure!
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      - nextDialogueIndex: 6
+        buttonName: Not mine...
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      prerequisiteForThisToBeBeggining:
+        statesName: 
+        name: 
+        toBe: 1
+      usualBeggining: 0
+    - dialogueName: present
+      sentences:
+      - text: So i will give you this spell. Press [Q] to use it.
+        questLineToProgress: {fileID: 11400000, guid: c309600cd39dcd1428c116ef4d17c2e1,
+          type: 2}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 11400000, guid: f336e5ad13993f947af0634af8afc823, type: 2}
+        exchanges: []
+        changes:
+        - statesName: QuinceStates
+          name: recieved magic
+          toBe: 1
+      - text: And just see what happens!
+        questLineToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
+        exchanges: []
+        changes: []
+      continuations:
+      - nextDialogueIndex: -1
+        buttonName: Thanks!
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      prerequisiteForThisToBeBeggining:
+        statesName: 
+        name: 
+        toBe: 1
+      usualBeggining: 0
+    - dialogueName: not present
+      sentences:
+      - text: I cannot believe it!
+        questLineToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
+        exchanges: []
+        changes: []
+      - text: I CANNOT BELIEVE IT!
+        questLineToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
+        exchanges: []
+        changes: []
+      - text: There are days without magic in your life?!
+        questLineToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
+        exchanges: []
+        changes: []
+      - text: So I will give you this one spell
+        questLineToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
+        exchanges: []
+        changes: []
+      - text: Press [Q] and see what happens next!
+        questLineToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
+        exchanges: []
+        changes: []
+      - text: And remember to use it every day!
+        questLineToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
+        exchanges: []
+        changes: []
+      - text: That`s very important
+        questLineToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
+        exchanges: []
+        changes: []
+      continuations:
+      - nextDialogueIndex: -1
+        buttonName: Sure!
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      - nextDialogueIndex: 2
+        buttonName: Whatever!
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      - nextDialogueIndex: 7
+        buttonName: Why is it so important?
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      prerequisiteForThisToBeBeggining:
+        statesName: 
+        name: 
+        toBe: 1
+      usualBeggining: 0
+    - dialogueName: importance
+      sentences:
+      - text: Well, of course this is very important, because...
+        questLineToProgress: {fileID: 0}
+        fromQuest: {fileID: 0}
+        toQuest: {fileID: 0}
+        exchanges: []
+        changes: []
+      continuations:
+      - nextDialogueIndex: 4
+        buttonName: Continue
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      prerequisiteForThisToBeBeggining:
+        statesName: 
+        name: 
+        toBe: 1
+      usualBeggining: 0
 --- !u!114 &114655179513569536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -830,6 +1136,27 @@ MonoBehaviour:
   m_Bones: []
   m_BoneTransforms:
   - {fileID: 4540149206193112}
+--- !u!114 &114791358832899856
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1077158611030144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4abb4595f6b136a4f97c67e4ff210554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statesName: GintonStates
+  states:
+  - name: should apear
+    satisfied: 0
+  - name: appeared
+    satisfied: 0
+  - name: talked to
+    satisfied: 0
+  - name: disappeared
+    satisfied: 0
 --- !u!114 &114802568395495760
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -50,7 +50,8 @@ public class PlayerInventory
         {
             gm.DisplayInventory(items.items);
         }
-
+        State_satisfier ss = GameObject.FindObjectOfType<State_satisfier>(); ;
+        ss.PossessiveStates();
 
     }
 

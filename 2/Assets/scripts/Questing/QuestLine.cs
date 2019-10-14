@@ -21,7 +21,11 @@ public class QuestLine : ScriptableObject
         {
             ongoing.ended = true;
             ongoing.success = true;
-            ongoing.reward.GiveReward();
+            if(ongoing.reward !=null)
+            {
+                ongoing.reward.GiveReward();
+
+            }
 
 
             if (last.Contains(ongoing))
@@ -29,11 +33,17 @@ public class QuestLine : ScriptableObject
                 Debug.Log("QuestLine completed");
                 ended = true;
                 success = true;
-                reward.GiveReward();
+                if(reward!=null)
+                {
+                    reward.GiveReward();
+
+                }
 
                 //    Journal journal = FindObjectOfType<Journal>();
                 Player player = FindObjectOfType<Player>();
                 player.journal.FinishQuestLine(this);
+
+                player.journal.Refresh();
 
                 return;
 
@@ -47,7 +57,11 @@ public class QuestLine : ScriptableObject
                 }
                 if (ongoing.next.Contains(to))
                     ongoing = to;
+
+                Player player = FindObjectOfType<Player>();
+                player.journal.Refresh();
             }
+     
         }
         
       
@@ -105,7 +119,44 @@ public class QuestLine : ScriptableObject
 
         //should be done?
     }
-}
+
+
+    public  void GoBack(Quest from = null, Quest to = null)
+    {
+
+        if (from == null && to == null)
+        {
+            return;
+        }
+
+        if(to==null)
+        {
+            return;
+        }
+        if(ongoing == from)
+        {
+            ongoing.ended = false;
+            ongoing = to;
+            ongoing.ended = false;
+            Player player = FindObjectOfType<Player>();
+            player.journal.Refresh();
+            return;
+        }
+        if(from == null)
+        {
+            ongoing.ended = false;
+            ongoing = to;
+            ongoing.ended = false;
+            Player player = FindObjectOfType<Player>();
+            player.journal.Refresh();
+            return;
+        }
+
+
+    }
+
+
+    }
 
 
 

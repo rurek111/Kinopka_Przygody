@@ -219,11 +219,34 @@ public class Player : MonoBehaviour
 
 	}
 
+    void Heal(int howmuch = 1, int cost = 3)
+    {
+        if(currentHP<=maxHP-howmuch)
+        {
+            if (gm.points >= cost)
+            {
+                gm.points -= cost;
+                currentHP += howmuch;
+                gm.Points();
+            }
+
+        }
+
+
+    }
+
     void Inventory()
     {
         if (Input.GetKeyDown("i"))
         {
             inventory.ToggleInventory();
+        }
+    }
+    void HealingSpell()
+    {
+        if (Input.GetKeyDown("q"))
+        {
+            Heal(1, 3);
         }
     }
 
@@ -242,6 +265,7 @@ public class Player : MonoBehaviour
         LeftControl();
         Inventory();
         Journal();
+        HealingSpell();
     }
 
 

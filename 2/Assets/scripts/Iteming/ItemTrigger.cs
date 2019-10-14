@@ -17,7 +17,10 @@ public class ItemTrigger : MonoBehaviour {
     void PickUp()
     {
         FindObjectOfType<Player>().inventory.AddItem(item);
-        dialogueBracket.text = (" ");
+        if (dialogueBracket.text == ("[E] to take"))
+        {
+            dialogueBracket.text = (" ");
+        }
         GameObject.Destroy(gameObject);
     }
 
@@ -51,7 +54,10 @@ public class ItemTrigger : MonoBehaviour {
     {
         if (col.CompareTag("Player"))
         {
-            dialogueBracket.text = (" ");
+            if(dialogueBracket.text == ("[E] to take"))
+            {
+                dialogueBracket.text = (" ");
+            }
         }
     }
 

@@ -87,19 +87,25 @@ public class dialogue_manager : MonoBehaviour {
         buttons[0].GetComponentInChildren<Text>().text = "Continue";
     }
 
-    public void ShowContinuation(Dialogue dialogue, int i)
+    public bool ShowContinuation(Dialogue dialogue, int i)
     {
-        if((dialogue.continuations[i].prerequisite.name.Length<1)||(dialogue.continuations[i].prerequisite.statesName.Length < 1))
+        buttons[i].gameObject.SetActive(true);
+        buttons[i].GetComponentInChildren<Text>().text = dialogue.continuations[i].buttonName;
+
+        if ((dialogue.continuations[i].prerequisite.name.Length<1)||(dialogue.continuations[i].prerequisite.statesName.Length < 1))
         {
-            buttons[i].gameObject.SetActive(true);
-            buttons[i].GetComponentInChildren<Text>().text = dialogue.continuations[i].buttonName;
+            return true;
         }
         else
         {
             if (dialogue.continuations[i].prerequisite.SatifiedPrerequisite() == true)
             {
-                buttons[i].gameObject.SetActive(true);
-                buttons[i].GetComponentInChildren<Text>().text = dialogue.continuations[i].buttonName;
+                return true;
+            }
+            else
+            {
+                buttons[i].gameObject.SetActive(false);
+                return false;
             }
         }
        
@@ -110,25 +116,45 @@ public class dialogue_manager : MonoBehaviour {
         DisableButtons();
         ShowContinue();
         int answers = dialogue.continuations.Length;
+        int activeButtons = 0;
         if (answers > 0)
         {
-            ShowContinuation(dialogue, 0);
+            if(ShowContinuation(dialogue, 0))
+            {
+                activeButtons++;
+            }
 
             if (answers > 1)
             {
-                ShowContinuation(dialogue, 1);
+                if (ShowContinuation(dialogue, 1))
+                {
+                    activeButtons++;
+                }
 
                 if (answers > 2)
                 {
-                    ShowContinuation(dialogue, 2);
+                    if (ShowContinuation(dialogue, 2))
+                    {
+                        activeButtons++;
+                    }
 
                     if (answers > 3)
                     {
-                        ShowContinuation(dialogue, 3);
+                        if (ShowContinuation(dialogue, 3))
+                        {
+                            activeButtons++;
+                        }
                     }
                 }
             }
         }
+
+        if(activeButtons<1)
+        {
+   //         ShowContinue();
+        }
+
+
     }
 
     public void DisableButtons()

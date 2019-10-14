@@ -1534,7 +1534,7 @@ MonoBehaviour:
     dialogue:
     - dialogueName: greeting
       sentences:
-      - text: Greetings brave Quice! My name is Rasno the reptile.
+      - text: Greetings brave Quince! My name is Rasno the reptile.
         questLineToProgress: {fileID: 0}
         fromQuest: {fileID: 0}
         toQuest: {fileID: 0}
@@ -1659,20 +1659,77 @@ MonoBehaviour:
         exchanges: []
         changes: []
       continuations:
-      - nextDialogueIndex: -1
+      - nextDialogueIndex: 5
         buttonName: I have a cup of water
         prerequisite:
-          statesName: 
-          name: 
+          statesName: QuinceStates
+          name: has cup of water
           toBe: 1
-      - nextDialogueIndex: -1
+      - nextDialogueIndex: 6
         buttonName: Do you know where Septina is?
         prerequisite:
-          statesName: 
-          name: 
+          statesName: QuinceStates
+          name: looks for Septina
           toBe: 1
       - nextDialogueIndex: -1
         buttonName: I have to go
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 0
+      - nextDialogueIndex: 3
+        buttonName: What did you ask me to do?
+        prerequisite:
+          statesName: RasnoStates
+          name: gave quest
+          toBe: 0
+      prerequisiteForThisToBeBeggining:
+        statesName: 
+        name: 
+        toBe: 1
+      usualBeggining: 1
+    - dialogueName: got cup of water
+      sentences:
+      - text: Thank you, now i can give you more tasks!
+        questLineToProgress: {fileID: 11400000, guid: ee5736d02dd154a42ac011e546051334,
+          type: 2}
+        fromQuest: {fileID: 11400000, guid: a07687f773ab2474b8e58f12d9305372, type: 2}
+        toQuest: {fileID: 11400000, guid: aad9dcbafdeb26e4aae45a52630f9873, type: 2}
+        exchanges:
+        - what: {fileID: 11400000, guid: 141344b6f77d9914787fa82f0c5db0f8, type: 2}
+          recieve: 0
+          who: {fileID: 114910392420679488}
+        changes: []
+      continuations:
+      - nextDialogueIndex: -1
+        buttonName: OK
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      - nextDialogueIndex: -1
+        buttonName: NOT OK
+        prerequisite:
+          statesName: 
+          name: 
+          toBe: 1
+      prerequisiteForThisToBeBeggining:
+        statesName: 
+        name: 
+        toBe: 1
+      usualBeggining: 0
+    - dialogueName: what about Septina
+      sentences:
+      - text: If I was you, I would ask ... about it. He is knows all the rumors.
+        questLineToProgress: {fileID: 11400000, guid: a19c2bc73ae62a140bff74eb5cc20f8b,
+          type: 2}
+        fromQuest: {fileID: 11400000, guid: 4841872e3c414ae41a544e3c4e9a79e2, type: 2}
+        toQuest: {fileID: 11400000, guid: 8e204395a13833048b635cd5b50343a0, type: 2}
+        exchanges: []
+        changes: []
+      continuations:
+      - nextDialogueIndex: 4
+        buttonName: Thank you!
         prerequisite:
           statesName: 
           name: 
@@ -1681,7 +1738,7 @@ MonoBehaviour:
         statesName: 
         name: 
         toBe: 1
-      usualBeggining: 1
+      usualBeggining: 0
 --- !u!114 &114893391045980204
 MonoBehaviour:
   m_ObjectHideFlags: 1

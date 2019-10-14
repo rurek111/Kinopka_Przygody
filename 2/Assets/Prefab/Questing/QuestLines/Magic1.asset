@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726808e33d40eb9428eac872852099b4, type: 3}
+  m_Name: Magic1
+  m_EditorClassIdentifier: 
+  ended: 0
+  success: 0
+  questLineName: Magic training
+  reward: {fileID: 0}
+  first: {fileID: 11400000, guid: f336e5ad13993f947af0634af8afc823, type: 2}
+  last:
+  - {fileID: 11400000, guid: f336e5ad13993f947af0634af8afc823, type: 2}
+  ongoing: {fileID: 0}

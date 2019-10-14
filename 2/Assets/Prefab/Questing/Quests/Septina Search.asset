@@ -11,9 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d604edba6fde9949879b08cbdab330e, type: 3}
   m_Name: Septina Search
   m_EditorClassIdentifier: 
-  ended: 0
-  success: 0
+  ended: 1
+  success: 1
   toDo: Gather some information on Septina
   reward: {fileID: 0}
   next:
   - {fileID: 11400000, guid: f1ffedc8fda245a49bdd86a8c37bd83a, type: 2}
+  - {fileID: 11400000, guid: 8e204395a13833048b635cd5b50343a0, type: 2}

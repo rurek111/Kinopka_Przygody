@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d604edba6fde9949879b08cbdab330e, type: 3}
-  m_Name: Rasno1
+  m_Name: Lyre1
   m_EditorClassIdentifier: 
-  ended: 1
-  success: 1
-  toDo: Bring Sir Rasno a cup of water
-  reward: {fileID: 11400000, guid: c090ee6352c4b26458218d5a35f19ecc, type: 2}
+  ended: 0
+  success: 0
+  toDo: Go to Lezaza`s palace
+  reward: {fileID: 0}
   next:
-  - {fileID: 11400000, guid: aad9dcbafdeb26e4aae45a52630f9873, type: 2}
-  - {fileID: 11400000, guid: 09a0fe83909a164498cb7a12cd661f1b, type: 2}
+  - {fileID: 11400000, guid: 9ae88fa804fa05b46a6654aec5d1b925, type: 2}
+  - {fileID: 11400000, guid: ebdb60ea0cac4414aae3ca04a974459a, type: 2}
