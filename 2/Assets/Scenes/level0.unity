@@ -38529,6 +38529,16 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 0.9869907
       objectReference: {fileID: 0}
+    - target: {fileID: 114869240752818250, guid: 3c7f104419720e54aac8d6024039a8fb,
+        type: 2}
+      propertyPath: dialogues.dialogue.Array.data[6].sentences.Array.data[0].text
+      value: If I was you, I would ask Refisul about it. He is knows all the rumors.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114869240752818250, guid: 3c7f104419720e54aac8d6024039a8fb,
+        type: 2}
+      propertyPath: dialogues.dialogue.Array.data[6].continuations.Array.data[0].nextDialogueIndex
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3c7f104419720e54aac8d6024039a8fb, type: 2}
   m_IsPrefabParent: 0
