@@ -2331,10 +2331,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -4006,14 +4006,14 @@ MonoBehaviour:
   speed: 7
   speed_walk: 5
   speed_run: 7
-  jump_power: 350
+  jump_power: 200
   jump_timer: 0
   grounded: 1
   prepare_jump: 0
   direction_normal: 1
   prefer_run: 1
   jumping: 0
-  currentHP: 0
+  currentHP: 5
   maxHP: 5
   state: 0
   exp: 0
@@ -4455,7 +4455,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 534287361
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 30
   serializedVersion: 2
   m_Quality: 0
@@ -4551,7 +4551,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 534287361
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 40
   serializedVersion: 2
   m_Quality: 0
@@ -4602,7 +4602,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 534287361
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 33
   serializedVersion: 2
   m_Quality: 0
@@ -4650,7 +4650,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 534287361
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
@@ -4698,7 +4698,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 534287361
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 56
   serializedVersion: 2
   m_Quality: 0
@@ -4746,7 +4746,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 534287361
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 40
   serializedVersion: 2
   m_Quality: 0
@@ -4795,7 +4795,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 534287361
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 40
   serializedVersion: 2
   m_Quality: 0
@@ -4843,7 +4843,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 534287361
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 19
   serializedVersion: 2
   m_Quality: 0
@@ -4890,7 +4890,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 534287361
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 36
   serializedVersion: 2
   m_Quality: 0
@@ -4938,7 +4938,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 534287361
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
@@ -4986,7 +4986,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 534287361
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 36
   serializedVersion: 2
   m_Quality: 0
@@ -5035,7 +5035,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 534287361
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 55
   serializedVersion: 2
   m_Quality: 0
@@ -5082,7 +5082,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 534287361
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 39
   serializedVersion: 2
   m_Quality: 0
@@ -5131,7 +5131,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 534287361
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 34
   serializedVersion: 2
   m_Quality: 0
@@ -5180,7 +5180,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 534287361
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 50
   serializedVersion: 2
   m_Quality: 0
@@ -5227,7 +5227,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 534287361
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 47
   serializedVersion: 2
   m_Quality: 0
@@ -5275,7 +5275,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 534287361
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 49
   serializedVersion: 2
   m_Quality: 0
@@ -5323,7 +5323,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 534287361
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 20
   serializedVersion: 2
   m_Quality: 0
@@ -5371,7 +5371,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 534287361
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
@@ -5419,7 +5419,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 534287361
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
@@ -5467,7 +5467,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 534287361
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
@@ -5515,7 +5515,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 534287361
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 54
   serializedVersion: 2
   m_Quality: 0
@@ -5562,7 +5562,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 534287361
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 45
   serializedVersion: 2
   m_Quality: 0
@@ -5610,7 +5610,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 534287361
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 12
   serializedVersion: 2
   m_Quality: 0
@@ -5658,7 +5658,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 534287361
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 46
   serializedVersion: 2
   m_Quality: 0
@@ -5706,7 +5706,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 534287361
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 37
   serializedVersion: 2
   m_Quality: 0

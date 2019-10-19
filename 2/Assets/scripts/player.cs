@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 	public float speed = 7f;
 	public float speed_walk = 5f;
 	public float speed_run = 7f;
-	public float jump_power = 350f;
+	public float jump_power = 200f;
 	public float jump_timer = 0.0f;
 
 
@@ -28,8 +28,7 @@ public class Player : MonoBehaviour
 	private float player_scale = 0.13739f; 
 	private float prep_jump_time = 0.2f;
 
-	public int currentHP;
-	public int maxHP = 5;
+	public float currentHP, maxHP = 5.0f;
 	public int state;
 
     public int exp = 0;
@@ -111,7 +110,13 @@ public class Player : MonoBehaviour
 			anim.SetBool("direction_normal", true);
 			rb2D.AddForce (Vector2.right * speed) ;
 		}
-	}
+
+
+        // Move the character by finding the target velocity
+       // Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
+        // And then smoothing it out and applying it to the character
+       // m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+    }
 
 	void Jump ()
 	{
