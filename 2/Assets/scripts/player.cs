@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 	public float jump_timer = 0.0f;
 
 
-	public bool grounded = true;
+	public bool grounded = true, ground_run = true;
 	public bool prepare_jump = false;
 	public bool direction_normal = true;
 	public bool prefer_run = true;
@@ -37,6 +37,8 @@ public class Player : MonoBehaviour
     public Journal journal;
     
     public PlayerInventory inventory;
+
+
 
 	// Use this for initialization
 	void Start () 
@@ -67,22 +69,26 @@ public class Player : MonoBehaviour
 	{
 		float h = Input.GetAxis("Horizontal");
 
-		rb2D.AddForce ((Vector2.right * speed) * h);
+        rb2D.velocity = new Vector2(h*maxSpeed, rb2D.velocity.y);
 
 
-        if (rb2D.velocity.x > maxSpeed)
-        {
-            rb2D.velocity = new Vector2(maxSpeed, rb2D.velocity.y);
-        }
+        /*
+       rb2D.AddForce ((Vector2.right * speed) * h);
 
-        if(rb2D.velocity.x < -maxSpeed)
-        {
-            rb2D.velocity = new Vector2(-maxSpeed, rb2D.velocity.y);
-        }
 
+       if (rb2D.velocity.x > maxSpeed)
+       {
+           rb2D.velocity = new Vector2(maxSpeed, rb2D.velocity.y);
+       }
+
+       if(rb2D.velocity.x < -maxSpeed)
+       {
+           rb2D.velocity = new Vector2(-maxSpeed, rb2D.velocity.y);
+       }
+       */
     }
 
-	void HealthCheck()
+    void HealthCheck()
 	{
 		if (currentHP > maxHP) 
 		{
@@ -93,7 +99,7 @@ public class Player : MonoBehaviour
 			Die ();
 		}
 	}
-
+    
 	void Move()
 	{
 		anim.SetFloat("speed", Mathf.Abs(rb2D.velocity.x) );
@@ -102,22 +108,23 @@ public class Player : MonoBehaviour
 		{
 			transform.localScale = new Vector3(-player_scale, player_scale, player_scale);
 			anim.SetBool("direction_normal", false);
-			rb2D.AddForce (Vector2.left * speed);
+			///rb2D.AddForce (Vector2.left * speed);
 		}
 		else if ((Input.GetAxis("Horizontal") > 0.1f) && grounded)
 		{
 			transform.localScale = new Vector3(player_scale, player_scale, player_scale);
 			anim.SetBool("direction_normal", true);
-			rb2D.AddForce (Vector2.right * speed) ;
+			//rb2D.AddForce (Vector2.right * speed) ;
 		}
 
 
         // Move the character by finding the target velocity
-       // Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
+       // Vector3 targetVelocity = new Vector2(speed * 10f, m_Rigidbody2D.velocity.y);
         // And then smoothing it out and applying it to the character
        // m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+    
     }
-
+    
 	void Jump ()
 	{
 		if (Input.GetButtonDown("Jump") && grounded == true)
