@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class dialogue_manager : MonoBehaviour {
 
-    public Text nameBracket;
-    public Text dialogueBracket;
+    private Text nameBracket;
+    private Text dialogueBracket;
     public Button[] buttons = new Button[4];
-    Dialogues givenDialogues;
-    Dialogue currentDialogue;
+    public Dialogues givenDialogues;
+    public Dialogue currentDialogue;
     public bool question = false;
-    Animator anim;
+    private Animator anim;
     public bool talking = false;
     public bool terminate = false;
 

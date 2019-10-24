@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 	public float jump_timer = 0.0f;
 
 
-	public bool grounded = true, ground_run = true;
+	public bool grounded = true;
 	public bool prepare_jump = false;
 	public bool direction_normal = true;
 	public bool prefer_run = true;
@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
 	private float player_scale = 0.13739f; 
 	private float prep_jump_time = 0.2f;
 
-	public float currentHP, maxHP = 5.0f;
+	public float currentHP, maxHP = 5.0f, currentMana, maxMana = 5.0f;
 	public int state;
 
     public int exp = 0;
@@ -99,6 +99,18 @@ public class Player : MonoBehaviour
 			Die ();
 		}
 	}
+
+    void ManaCheck()
+    {
+        if(currentMana > maxMana)
+        {
+            currentMana = maxMana;
+        }
+        if(currentMana<0)
+        {
+            currentMana = 0f;
+        }
+    }
     
 	void Move()
 	{
@@ -185,7 +197,7 @@ public class Player : MonoBehaviour
 		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);		//restart
 	}
 		
-	public void Damage(int dmg)
+	public void Damage(float dmg)
 	{
 		if (dmg > currentHP) 
 		{
@@ -195,17 +207,11 @@ public class Player : MonoBehaviour
 		else 
 		{
 			currentHP -= dmg;
-		}	
+		}
+        HealthCheck();
 	}
 
-	public void Knockback(float knockDur, float knockbackPwr, Vector3 knockbackDir)
-	{
-		float timer = 0;
-		{
-			timer += Time.deltaTime;
-			rb2D.AddForce (new Vector3 (knockbackDir.x * -100, knockbackDir.y * knockbackPwr, transform.position.z));
-		}
-	}
+
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
@@ -231,15 +237,16 @@ public class Player : MonoBehaviour
 
 	}
 
-    void Heal(int howmuch = 1, int cost = 3)
+    void Heal(float howmuch = 1f, float cost = 3f)
     {
         if(currentHP<=maxHP-howmuch)
         {
-            if (gm.points >= cost)
+            if (currentMana >= cost)
             {
-                gm.points -= cost;
+                currentMana -= cost;
                 currentHP += howmuch;
-                gm.Points();
+                HealthCheck();
+                ManaCheck();
             }
 
         }

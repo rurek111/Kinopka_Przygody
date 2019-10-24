@@ -10,12 +10,31 @@ public class pause_menu : MonoBehaviour {
     private bool paused = false;
 
     void Start() {
-        pause_ui = GameObject.Find("pause_ui");
-        pause_ui.SetActive(false);
+        //  GameObject canvas = GameObject.Find("Canvas");
+        //  canvas.SetActive(true);  //
+        FindInactive finder = FindObjectOfType<FindInactive>();
+        pause_ui = finder.FindInactiveObjectByName("pause_ui");
+
+        if (pause_ui != null)
+        {
+            pause_ui.SetActive(false);
+        }
+        else
+        {
+            Start();
+            return;
+        }
     }
 
     void Update()
     {
+
+        if (pause_ui== null)
+        {
+            Start();
+            return;
+        }
+
         if (Input.GetButtonDown("Pause"))
         {
             paused = !paused;
