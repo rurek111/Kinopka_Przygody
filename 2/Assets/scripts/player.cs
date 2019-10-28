@@ -194,7 +194,7 @@ public class Player : MonoBehaviour
 
 	void Die ()
 	{
-		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);		//restart
+		SceneManager.LoadScene (0);		//restart
 	}
 		
 	public void Damage(float dmg)

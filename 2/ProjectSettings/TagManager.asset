@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - burak
   - game_master
+  - ground
+  - Canvas
   layers:
   - Default
   - TransparentFX
@@ -50,11 +52,11 @@ TagManager:
   - name: back_plants etc
     uniqueID: 1114521207
     locked: 0
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: walkOn
     uniqueID: 822118239
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: gnome
     uniqueID: 3243604857

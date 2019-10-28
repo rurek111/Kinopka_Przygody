@@ -15,7 +15,8 @@ public class Spikes : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col){
 	
-		if (col.CompareTag ("Player")) {
+		if (col.CompareTag ("Player"))
+        {
 		
 			player.Damage (damage);
 

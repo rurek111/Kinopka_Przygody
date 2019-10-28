@@ -25,6 +25,18 @@ public class State_satisfier : MonoBehaviour {
 
     }
 
+    public void LevelChange()
+    {
+        States[] temp = FindObjectsOfType<States>();
+        foreach(States s in temp)
+        {
+            if(!allStates.Contains(s))
+            {
+                allStates.Add(s);
+            }
+        }
+    }
+
 
     // Update is called once per frame
     void Update ()

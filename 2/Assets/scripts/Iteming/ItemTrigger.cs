@@ -16,6 +16,8 @@ public class ItemTrigger : MonoBehaviour {
 
     void PickUp()
     {
+        Debug.Log("Picked item");
+
         FindObjectOfType<Player>().inventory.AddItem(item);
         if (dialogueBracket.text == ("[E] to take"))
         {
@@ -57,6 +59,11 @@ public class ItemTrigger : MonoBehaviour {
             if(dialogueBracket.text == ("[E] to take"))
             {
                 dialogueBracket.text = (" ");
+            }
+            if (Input.GetKeyDown("e"))
+            {
+                PickUp();
+
             }
         }
     }

@@ -77,7 +77,7 @@ public class game_master : MonoBehaviour //mostly UI
    
 
 
-    public void InvContent(List<Item> items, float space_width = 1.2f)
+    public void InvContent(List<Item> items, float space_width = 0.0f)
     {
         int n = 0;
 
@@ -143,7 +143,7 @@ public class game_master : MonoBehaviour //mostly UI
     }
 
 
-    public void JrnContent(List<QuestLine> done, List<QuestLine> undone, float space_width = 1.2f)
+    public void JrnContent(List<QuestLine> done, List<QuestLine> undone, float space_width = 0.0f)
     {
         int n = 0;
 

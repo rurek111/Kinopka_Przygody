@@ -41,14 +41,30 @@ public class door : MonoBehaviour {
 
     void LoadScene(string s)
     {
+        dialogue_manager dm = FindObjectOfType<dialogue_manager>();
+        dm.EndDialogue();
+
         GameObject player = GameObject.FindGameObjectWithTag("Player");
        // GameObject game_master = GameObject.FindGameObjectWithTag("game_master");
 
-        GameObject canvas = GameObject.Find("Canvas");
+        GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
         GameObject[] gameObjectsToMove = { player, canvas };//, game_master };
 
-  
-        StartCoroutine(LoadYourAsyncScene(SceneManager.GetSceneByName(s), gameObjectsToMove));
+        string[] namesOfGOWhereToPut0 = { "entrance_spawn", null };
+        string[] namesOfGOWhereToPut1 = { "spawn_stairs", null };
+        string[] where = { null, null };
+
+
+        if (s == "level0")
+        {
+            where = namesOfGOWhereToPut0;
+        }
+        else if (s == "level1")
+        {
+            where = namesOfGOWhereToPut1;
+        }
+       
+        StartCoroutine(LoadYourAsyncScene(SceneManager.GetSceneByName(s), gameObjectsToMove, where));
 
 
 
@@ -68,7 +84,7 @@ public class door : MonoBehaviour {
     }
 
 
-    IEnumerator LoadYourAsyncScene(Scene scene, GameObject[] objectsToLoad)//EXAPLE FROM DOCUMENTATION
+    IEnumerator LoadYourAsyncScene(Scene scene, GameObject[] objectsToLoad, string [] whereToLoad)//based on EXAPLE FROM DOCUMENTATION
     {
         // Set the current Scene to be able to unload it later
         Scene currentScene = SceneManager.GetActiveScene();
@@ -81,13 +97,34 @@ public class door : MonoBehaviour {
         {
             yield return null;
         }
+        int i = 0;
         foreach(GameObject g in objectsToLoad)
         {
             SceneManager.MoveGameObjectToScene(g, SceneManager.GetSceneByName(LevelToLoad));
+          
         }
 
         // Unload the previous Scene
         SceneManager.UnloadSceneAsync(currentScene);
+
+        foreach (GameObject g in objectsToLoad)
+        {
+            GameObject where = null;
+            where = GameObject.Find(whereToLoad[i]);
+            if (where != null)
+            {
+                g.transform.position = where.transform.position;
+            }
+            i++;
+
+        }
+
+        State_satisfier stateSat = GameObject.FindGameObjectWithTag("game_master").GetComponent<State_satisfier>();
+        stateSat.LevelChange();
+
+
+
+
     }
 }
 

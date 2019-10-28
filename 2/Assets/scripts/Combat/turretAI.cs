@@ -27,8 +27,10 @@ public class turretAI : MonoBehaviour {
 	void Start(){
 		currentHP = maxHP;
 		anim = gameObject.GetComponent<Animator>();
+        GameObject player =  GameObject.FindGameObjectWithTag("Player");
+        target = player.transform;
 
-	}
+    }
 
 	void Update(){
 		
@@ -50,16 +52,22 @@ public class turretAI : MonoBehaviour {
 	}
 
 	void RangeCheck(){
-		distance = Vector3.Distance (transform.position, target.transform.position);
-		if (distance < wakeRange) {
-			anim.SetBool ("awake", true);
+        if(target!= null)
+        {
+            distance = Vector3.Distance(transform.position, target.transform.position);
+            if (distance < wakeRange)
+            {
+                anim.SetBool("awake", true);
 
 
+            }
+            if (distance > wakeRange)
+            {
+                anim.SetBool("awake", false);
+
+            }
         }
-        if (distance > wakeRange) {
-			anim.SetBool ("awake", false);
-
-		}
+		
 	}
 
 	public void attack(bool attackingRight){

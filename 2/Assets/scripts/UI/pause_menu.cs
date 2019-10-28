@@ -67,7 +67,7 @@ public class pause_menu : MonoBehaviour {
 
 	public void Main_menu(){
 
-		SceneManager.LoadScene (SceneManager.GetSceneAt(0).buildIndex); // No main menu, change the number at a later date
+		SceneManager.LoadScene (0); 
 
 	}
 
