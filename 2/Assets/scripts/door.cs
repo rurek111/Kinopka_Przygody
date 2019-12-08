@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class door : MonoBehaviour {
 
 	public string LevelToLoad;
+    public string message = "[E] to Enter";
    // public Scene scene;
-	private game_master gm;
+    private game_master gm;
+	public Slider slider;
 
 	void Start(){
 		gm = GameObject.FindGameObjectWithTag ("game_master").GetComponent<game_master> ();
@@ -15,7 +18,7 @@ public class door : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col){
 		if (col.CompareTag ("Player")) {
-			gm.input_text.text = ("[E] to Enter");
+			gm.input_text.text = (message);
 			if (Input.GetKeyDown ("e")) {
                 LoadScene(LevelToLoad);
 
@@ -41,6 +44,10 @@ public class door : MonoBehaviour {
 
     void LoadScene(string s)
     {
+
+
+
+
         dialogue_manager dm = FindObjectOfType<dialogue_manager>();
         dm.EndDialogue();
 
@@ -86,6 +93,14 @@ public class door : MonoBehaviour {
 
     IEnumerator LoadYourAsyncScene(Scene scene, GameObject[] objectsToLoad, string [] whereToLoad)//based on EXAPLE FROM DOCUMENTATION
     {
+		FindInactive finder = FindObjectOfType<FindInactive>();
+		GameObject loadingScreen  = finder.FindInactiveObjectByName("LoadingScreen");
+		loadingScreen.gameObject.SetActive(true);
+		GameObject slid = GameObject.Find("LoadingSlider");
+		slider = slid.GetComponent<Slider> ();
+		slider.value = 0;
+
+
         // Set the current Scene to be able to unload it later
         Scene currentScene = SceneManager.GetActiveScene();
 
@@ -95,6 +110,7 @@ public class door : MonoBehaviour {
         // Wait until the last operation fully loads to return anything
         while (!asyncLoad.isDone)
         {
+			slider.value = asyncLoad.progress;
             yield return null;
         }
         int i = 0;
@@ -104,8 +120,7 @@ public class door : MonoBehaviour {
           
         }
 
-        // Unload the previous Scene
-        SceneManager.UnloadSceneAsync(currentScene);
+
 
         foreach (GameObject g in objectsToLoad)
         {
@@ -124,6 +139,10 @@ public class door : MonoBehaviour {
 
 
 
+		loadingScreen.gameObject.SetActive(false);
+
+		// Unload the previous Scene
+		SceneManager.UnloadSceneAsync(currentScene);
 
     }
 }

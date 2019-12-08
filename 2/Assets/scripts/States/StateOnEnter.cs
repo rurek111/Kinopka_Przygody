@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StateOnEnter : MonoBehaviour {
     public QuestLine questLine;
-    public Quest from, to;
+    public Quest from, to, alt = null;
 
 
 
@@ -45,8 +45,15 @@ public class StateOnEnter : MonoBehaviour {
                 if (q.ongoing == from)
                 {
                     q.Proceed(from, to);
-
                 }
+                else
+                {
+                    if (q.ongoing == alt)
+                    {
+                        q.Proceed(alt, to);
+                    }
+                }
+             
             }
 
         }
@@ -78,7 +85,14 @@ public class StateOnEnter : MonoBehaviour {
 
                 if (q.ongoing == to)
                 {
-                    q.GoBack(to, from);
+                    if(alt == null)
+                    {
+                        q.GoBack(to, from);
+                    }
+                    else
+                    {
+                        q.GoBack(to, alt);
+                    }
                 }
             }
 

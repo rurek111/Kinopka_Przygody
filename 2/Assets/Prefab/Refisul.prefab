@@ -150,6 +150,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1750647906079152
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4627550317767788}
+  - component: {fileID: 82907255071089404}
+  m_Layer: 0
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1832219621084290
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,6 +229,7 @@ Transform:
   m_LocalPosition: {x: -0.7, y: -15.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4627550317767788}
   - {fileID: 4980922954694016}
   - {fileID: 4710578409700818}
   - {fileID: 4494498859526618}
@@ -259,7 +276,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4129835231674886}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4619887407616682
 Transform:
@@ -274,6 +291,19 @@ Transform:
   m_Father: {fileID: 4629632087779144}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -41.892002}
+--- !u!4 &4627550317767788
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1750647906079152}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.9, y: 0.4, z: 0}
+  m_LocalScale: {x: 0.11008605, y: 0.11008602, z: 0.11008602}
+  m_Children: []
+  m_Father: {fileID: 4129835231674886}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4629632087779144
 Transform:
   m_ObjectHideFlags: 1
@@ -288,7 +318,7 @@ Transform:
   - {fileID: 4619887407616682}
   - {fileID: 4779644114436344}
   m_Father: {fileID: 4129835231674886}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4710578409700818
 Transform:
@@ -301,7 +331,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4129835231674886}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4779644114436344
 Transform:
@@ -341,7 +371,7 @@ Transform:
   m_Children:
   - {fileID: 4195026560710104}
   m_Father: {fileID: 4129835231674886}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4980922954694016
 Transform:
@@ -354,7 +384,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4129835231674886}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23190591244438690
 MeshRenderer:
@@ -388,7 +418,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 890540307
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
 --- !u!23 &23315467666734778
 MeshRenderer:
@@ -422,7 +452,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 890540307
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 6
 --- !u!23 &23999263158850344
 MeshRenderer:
@@ -456,7 +486,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 890540307
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 1
 --- !u!33 &33338065397360666
 MeshFilter:
@@ -504,6 +534,92 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 32.54, y: 23.091797}
   m_EdgeRadius: 0
+--- !u!82 &82907255071089404
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1750647906079152}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b8c81d4003fe802499a16c4878f74572, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.305
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 175
+  DopplerLevel: 1
+  MinDistance: 4.501305
+  MaxDistance: 14.008884
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0.3189841
+      value: 1
+      inSlope: -3.136211
+      outSlope: -3.136211
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.5593091
+      value: 0.39167023
+      inSlope: -0.7840527
+      outSlope: -0.7840527
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: -0.31911135
+      outSlope: -0.31911135
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.4
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95930753915681018
 Animator:
   serializedVersion: 3
@@ -1143,7 +1259,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 890540307
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 19
   serializedVersion: 2
   m_Quality: 0
@@ -1190,7 +1306,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 890540307
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: -3
   serializedVersion: 2
   m_Quality: 0
@@ -1237,7 +1353,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 890540307
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 20
   serializedVersion: 2
   m_Quality: 0

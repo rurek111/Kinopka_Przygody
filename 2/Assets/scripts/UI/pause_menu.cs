@@ -67,7 +67,7 @@ public class pause_menu : MonoBehaviour {
 
 	public void Main_menu(){
 
-		SceneManager.LoadScene (0); 
+		SceneManager.LoadScene ("Main Menu"); 
 
 	}
 
