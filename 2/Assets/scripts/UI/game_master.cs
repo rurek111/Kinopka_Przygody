@@ -14,7 +14,7 @@ public class game_master : MonoBehaviour //mostly UI
     private Vector2 delta_img;
     private List <GameObject> inv, jourD, jourUD;
     public Sprite checkmark, cross;
-
+	public Help h;
     void Start()
     {
         input_text = GameObject.Find("input_text").GetComponent(typeof(Text)) as Text;
@@ -40,6 +40,10 @@ public class game_master : MonoBehaviour //mostly UI
 
     void Update()
 	{
+		if (Input.GetKeyDown ("h")) 
+		{
+			h.ToggleHelp ();
+		}
 	}
 
     public void Points()

@@ -8,11 +8,11 @@ public class MainMenu : MonoBehaviour {
     public GameObject player;
     public GameObject canvas;
 	public Slider slider;
-
+	private FindInactive finder;
 
 	// Use this for initialization
 	void Start () {
-		
+			
 	}
 	
 	// Update is called once per frame
@@ -32,6 +32,9 @@ public class MainMenu : MonoBehaviour {
 		GameObject quince = GameObject.Instantiate(player);
 		GameObject c = GameObject.Instantiate(canvas);
 	c.gameObject.SetActive(true);
+		finder = FindObjectOfType<FindInactive> ();
+		GameObject loadingScreen = finder.FindInactiveObjectByName ("LoadingScreen");	
+		loadingScreen.SetActive(true);
 
 		GameObject slid = GameObject.Find("LoadingSlider");
 		slider = slid.GetComponent<Slider> ();
@@ -59,7 +62,6 @@ public class MainMenu : MonoBehaviour {
 		State_satisfier stateSat = GameObject.FindGameObjectWithTag("game_master").GetComponent<State_satisfier>();
 		stateSat.LevelChange();
 
-		GameObject loadingScreen = GameObject.Find ("LoadingScreen");
 		loadingScreen.gameObject.SetActive(false);
 
 		// Unload the previous Scene

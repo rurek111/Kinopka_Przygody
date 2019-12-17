@@ -38,17 +38,20 @@ public class turretAI : MonoBehaviour {
 
 		RangeCheck ();
 
-		if (target.transform.position.x > transform.position.x) {
+		if (target.transform.position.x > transform.position.x) 
+		{
 			anim.SetBool ("looking_right", true);
-
+			//transform.ro
 		}
-		if (target.transform.position.x < transform.position.x) {
+		if (target.transform.position.x < transform.position.x) 
+		{
 			anim.SetBool ("looking_right", false);
 
 		}
 		if (currentHP<=0) {
 			Destroy (gameObject);
 		}
+
 	}
 
 	void RangeCheck(){

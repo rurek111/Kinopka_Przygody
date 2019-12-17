@@ -26,25 +26,16 @@ public class Continuations
     public int nextDialogueIndex;
     public string buttonName;
    public StateToBeChanged prerequisite;
-
-
-
 }
-
-
-
-
+	
 [System.Serializable]
 
 public class Sentence
 {
-
     [TextArea(3, 15)]
-
     public string text;
     public QuestLine questLineToProgress;
     public Quest fromQuest, toQuest;
     public Transfer[] exchanges;
     public StateToBeChanged[] changes;
-
 }

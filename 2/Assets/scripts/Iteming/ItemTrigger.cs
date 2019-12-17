@@ -8,15 +8,28 @@ public class ItemTrigger : MonoBehaviour {
 
     private Text dialogueBracket;
     public Item item;
+	private bool inRange = false;
+
 
     void Start()
     {
         dialogueBracket = GameObject.Find("input_text").GetComponent(typeof(Text)) as Text;
     }
 
+	void Update()
+	{
+		if (inRange) 
+		{
+			if (Input.GetKeyDown ("e")) 
+			{
+				PickUp ();
+			}
+		}
+	}
+
     void PickUp()
     {
-        Debug.Log("Picked item");
+       // Debug.Log("Picked item");
 
         FindObjectOfType<Player>().inventory.AddItem(item);
         if (dialogueBracket.text == ("[E] to take"))
@@ -31,12 +44,9 @@ public class ItemTrigger : MonoBehaviour {
     {
         if (col.CompareTag("Player"))
         {
+			inRange = true;
             dialogueBracket.text = ("[E] to take");
-            if (Input.GetKeyDown("e"))
-            {
-                PickUp();
-
-            }
+           
         }
     }
 
@@ -44,11 +54,8 @@ public class ItemTrigger : MonoBehaviour {
     {
         if (col.CompareTag("Player"))
         {
-            if (Input.GetKeyDown("e"))
-            {
-                PickUp();
- 
-            }
+			inRange = true;
+          
         }
     }
 
@@ -56,15 +63,12 @@ public class ItemTrigger : MonoBehaviour {
     {
         if (col.CompareTag("Player"))
         {
+			inRange = false;
             if(dialogueBracket.text == ("[E] to take"))
             {
                 dialogueBracket.text = (" ");
             }
-            if (Input.GetKeyDown("e"))
-            {
-                PickUp();
-
-            }
+           // if (Input.GetKeyDown("e")){ PickUp();}
         }
     }
 

@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 	public float speed = 7f;
 	public float speed_walk = 5f;
 	public float speed_run = 7f;
-	public float jump_power = 200f;
+	public float jump_power = 700f;
 	public float jump_timer = 0.0f;
 
 
@@ -26,10 +26,9 @@ public class Player : MonoBehaviour
     private Animator anim;
 	private game_master gm;
 	private float player_scale = 0.13739f; 
-	private float prep_jump_time = 0.2f;
+	private float prep_jump_time = 0.17f;
 
 	public float currentHP, maxHP = 5.0f, currentMana, maxMana = 5.0f;
-	public int state;
 
     public int exp = 0;
 
@@ -50,7 +49,7 @@ public class Player : MonoBehaviour
 		transform.localScale = new Vector3(player_scale, player_scale, player_scale);
 
 		currentHP = maxHP;
-		state = 1;
+		currentMana = maxMana;
 		anim.SetBool("direction_normal", true);
 		anim.SetBool("prefer_run", true);
 	}
@@ -59,10 +58,7 @@ public class Player : MonoBehaviour
 	void Update () 
 	{
 		Move ();
-		Jump ();
 		HealthCheck ();
-		PressKey ();
-		update_state ();
     }
 
 	void FixedUpdate () 
@@ -71,6 +67,8 @@ public class Player : MonoBehaviour
 
         rb2D.velocity = new Vector2(h*maxSpeed, rb2D.velocity.y);
 
+		Jump ();
+		PressKey ();
 
         /*
        rb2D.AddForce ((Vector2.right * speed) * h);
@@ -223,19 +221,7 @@ public class Player : MonoBehaviour
 		}
 	}
 
-	void update_state()
-	{
 
-		if (Input.GetKeyDown(KeyCode.Alpha1)) 
-		{
-			state = 1;
-		}
-		else if (Input.GetKeyDown (KeyCode.Alpha2)) 
-		{
-			state = 2;
-		}
-
-	}
 
     void Heal(float howmuch = 1f, float cost = 3f)
     {

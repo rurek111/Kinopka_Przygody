@@ -22,8 +22,8 @@ public class ground_check : MonoBehaviour {
 
                 anim.SetBool("grounded", true);
                 player.grounded = true;
-                player.prepare_jump = false;
-                anim.SetBool("prepare_jump", false);
+               // player.prepare_jump = false;
+               // anim.SetBool("prepare_jump", false);//bumpy roads made character stop preparing
                 anim.SetBool("jumping", false);
                 player.jumping = false;
             }
@@ -46,9 +46,9 @@ public class ground_check : MonoBehaviour {
         {
             anim.SetBool("grounded", false);
             player.grounded = false;
-            player.prepare_jump = false;
-            anim.SetBool("prepare_jump", false);
-            player.jumping = false;
+            //player.prepare_jump = false;//
+            //anim.SetBool("prepare_jump", false);//
+            //player.jumping = false;
         }
     }
 }

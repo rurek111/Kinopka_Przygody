@@ -9,6 +9,8 @@ public class NPCDialogueTrigger : MonoBehaviour {
     private Text dialogueBracket;
     private DialogueFlow flow;
     private Animator a;
+	private bool inRange = false;
+	private dialogue_manager dialMan;
 
     void Start()
     {
@@ -16,21 +18,47 @@ public class NPCDialogueTrigger : MonoBehaviour {
         flow = gameObject.GetComponent(typeof(DialogueFlow)) as DialogueFlow;
         dialogueBracket = GameObject.Find("input_text").GetComponent(typeof(Text)) as Text;
         //nameBracket = GameObject.Find("speakers name").GetComponent(typeof(Text)) as Text;
-
+		dialMan = FindObjectOfType<dialogue_manager>();
     }
+
+	void Update()
+	{
+		if(dialMan.terminate == true)
+		{
+			StopSpeech();
+		}
+
+
+		if (inRange) 
+		{			
+			if (Input.GetKeyDown("e"))
+			{
+				if( dialMan.talking==false )
+				{
+					TriggerDialogue();
+
+
+
+				}
+			}
+		}
+
+
+
+
+	}
 
     public void TriggerDialogue()
     {
-        FindObjectOfType<dialogue_manager>().StartDialogue(flow.dialogues);
-        a.SetBool("talking", true);
-
+		a.SetBool("talking", true);
+		dialMan.StartDialogue(flow.dialogues);
     }
 
     public void StopSpeech()
     {
 
         a.SetBool("talking", false);
-        FindObjectOfType<dialogue_manager>().terminate = false;
+		dialMan.terminate = false;
 
     }
 
@@ -38,11 +66,12 @@ public class NPCDialogueTrigger : MonoBehaviour {
     {
         if (col.CompareTag("Player"))
         {
-            dialogueBracket.text = ("[E] to talk");
-            if ((Input.GetKeyDown("e")) && ( FindObjectOfType<dialogue_manager>().talking==false ))
-            {
-                TriggerDialogue();
-            }
+			inRange = true;
+
+			if (dialMan.talking == false)///cause it fired when talking and player got closer to th verge of the hitbox, which made npcs say [E] to talk
+			{
+				dialogueBracket.text = ("[E] to talk"); 
+			}
         }
     }
 
@@ -50,25 +79,21 @@ public class NPCDialogueTrigger : MonoBehaviour {
     {
         if (col.CompareTag("Player"))
         {
+
+			inRange = true;
           //  dialogueBracket.text = ("[E] to talk");
 
-            if ((Input.GetKeyDown("e")) && (FindObjectOfType<dialogue_manager>().talking == false))
-            {
-                TriggerDialogue();
-            }
-
-            if(FindObjectOfType<dialogue_manager>().terminate == true)
-            {
-                StopSpeech();
-            }
+		
         }
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
+		inRange = false;
+
         if (col.CompareTag("Player"))
         {
-            FindObjectOfType<dialogue_manager>().EndDialogue();
+			dialMan.EndDialogue();
             StopSpeech();
         }
     }

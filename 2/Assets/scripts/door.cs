@@ -10,7 +10,8 @@ public class door : MonoBehaviour {
     public string message = "[E] to Enter";
    // public Scene scene;
     private game_master gm;
-	public Slider slider;
+	private Slider slider;
+	private FindInactive finder;
 
 	void Start(){
 		gm = GameObject.FindGameObjectWithTag ("game_master").GetComponent<game_master> ();
@@ -46,8 +47,7 @@ public class door : MonoBehaviour {
     {
 
 
-
-
+	
         dialogue_manager dm = FindObjectOfType<dialogue_manager>();
         dm.EndDialogue();
 

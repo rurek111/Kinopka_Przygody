@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FindInactive : MonoBehaviour {
+public class FindInactive : MonoBehaviour { //algorithms taken from https://stackoverflow.com/questions/44456133/find-inactive-gameobject-by-name-tag-or-layer
 
 	// Use this for initialization
 	void Start () {
@@ -15,7 +15,7 @@ public class FindInactive : MonoBehaviour {
 	}
 
 
-    public  GameObject FindInactiveObjectByName(string name)
+	public  GameObject FindInactiveObjectByName(string name)//this one. (the only one used)
     {
         Transform[] objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];
         for (int i = 0; i < objs.Length; i++)
@@ -31,7 +31,7 @@ public class FindInactive : MonoBehaviour {
         return null;
     }
 
-    public GameObject FindInactiveObjectByLayer(int layer)
+    public GameObject FindInactiveObjectByLayer(int layer)//this also
     {
 
         Transform[] objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];
@@ -49,7 +49,7 @@ public class FindInactive : MonoBehaviour {
     }
 
 
-    public GameObject FindInActiveObjectByTag(string tag)
+    public GameObject FindInActiveObjectByTag(string tag)//and this.
     {
 
         Transform[] objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];

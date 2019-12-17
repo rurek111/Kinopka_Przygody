@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour {
 
-    private GameObject hpBar;
-    private UnityEngine.UI.Slider bar;
+    private GameObject hpBar, magicBar;
+    private UnityEngine.UI.Slider hpbar, mbar;
+
 
 	private Player player;
 
@@ -14,15 +15,18 @@ public class HUD : MonoBehaviour {
 	
 		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
         hpBar = GameObject.Find("HP bar");
-        bar = hpBar.GetComponent<Slider>();
+		magicBar = GameObject.Find("Mana bar");
 
+        hpbar = hpBar.GetComponent<Slider>();
+		mbar = magicBar.GetComponent<Slider>();
 
     }
 
     void Update (){
 
         //HeartUI.sprite = HeartSprites [player.currentHP];
-        bar.value = player.currentHP / player.maxHP * 100;
+        hpbar.value = player.currentHP / player.maxHP * 100;
+		mbar.value = player.currentMana / player.maxMana * 100;
 	}
 
 

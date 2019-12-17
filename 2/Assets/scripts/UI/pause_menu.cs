@@ -37,31 +37,36 @@ public class pause_menu : MonoBehaviour {
 
         if (Input.GetButtonDown("Pause"))
         {
-            paused = !paused;
+			if (!paused)
+			{
+				Pause ();
+			}
+			else
+			{
+				Resume();
+			}
         }
 
-        if (paused)
-        {
-            pause_ui.SetActive(true);
-            Time.timeScale = 0;
-        }
-
-        if (!paused)
-        {
-            pause_ui.SetActive(false);
-            Time.timeScale = 1;
-        }
 
     }
+
+	public void Pause()
+	{
+		paused = true;
+		pause_ui.SetActive(true);
+		Time.timeScale = 0;
+	}
 
     public void Resume()
     {
         paused = false;
+		pause_ui.SetActive(false);
+		Time.timeScale = 1;
     }
 
 	public void Restart(){
 
-		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
+		SceneManager.LoadScene ("level0");
 
 	}
 
